@@ -16,6 +16,10 @@ h1 {
 	font-size: 32px;
 }
 
+img {
+	max-width:100%;
+}
+
 .wrapper {
 	margin:100px;
 }
@@ -32,4 +36,25 @@ input[type=submit] {
 	background: white;
 	color:#19703e;
 	border:1px solid #19703e;
+}
+
+.results {
+	padding-top:3%;
+}
+
+.places {
+	width:33%;
+	float:left;
+}
+
+.places img {
+	width:90%;
+}
+
+a.tweet, .addr {
+	display:block;
+}
+
+.addr {
+	padding-top:4%;
 }

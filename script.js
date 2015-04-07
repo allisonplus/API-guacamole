@@ -45,18 +45,16 @@ guac.getPlaces = function(place) {
 			// v : '20151010',
 			client_id : guac.clientId,
 			client_secret : guac.clientSecret,
-			// near : place,
 			near : guac.location,
 			radius : 1000,
-			// limit : 10,
-			query : 'guacamole'
-			// openNow : true,
-			// venuePhotos : '1'
+			limit : 8,
+			query : 'guacamole',
+			openNow : true,
+			venuePhotos : '1'
 		},
 		success : function(result) {
 			console.log(result);
 			guac.displayPlaces(result);	
-			
 		}
 	}); // end ajax
 } // end .getPlaces
@@ -73,26 +71,39 @@ guac.displayPlaces = function(result) {
 	var places = result.response.groups[0].items;
 	console.log(places);
 
-	// create for loop that will loop through array being held in items above
+	// LOOP that will go through array being held in items above
 
 	for (i=0; i < places.length; i++) {
 
 		//create blank div
-		var div = $('<div>').addClass('places clearfix');
+		var div = $('<div>').addClass('places');
 
 		//get venue name
 		var h3 = $('<h3>').text(places[i].venue.name);
 
 		//get venue address
+		var addrPrefix = "https://foursquare.com/v/" + places[i].venue.id;
+		var addr = $('<a class="addr">').attr('href', addrPrefix).html('<i class="fa fa-home"></i> ' + places[i].venue.location.address);
+
+		//get distance from current location(?)
+
+		//twitter
+		var twitterPrefix = "https://www.twitter.com/";
+		if(places[i].venue.contact.twitter) {
+			var tweet = $('<a class="tweet">').attr('href', twitterPrefix + places[i].venue.contact.twitter).html('<i class="fa fa-twitter-square"></i> ' + '@' + places[i].venue.contact.twitter);
+		} else {
+			var tweet = '';
+		}
 
 		//venue photo
 		var photoPrefix = places[i].venue.photos.groups[0].items[0];
 		var photo = $('<img>').attr('src',photoPrefix.prefix + photoPrefix.height + photoPrefix.suffix);
 
-		//append that div to the results section
-		$('.results').append(h3);
-		$('.results').append(photo);
+		//put all of the variables into the div
+		div.append(h3, photo, addr, tweet);
 
+		//append that div to the results section of the html
+		$('section.results').append(div)
 
 	}
 
