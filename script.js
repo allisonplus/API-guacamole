@@ -2,10 +2,11 @@
 var guac = {
 };
 
-guac.init = function() {
 guac.clientId = 'M01QAACEECGNTWIG3C3GEC5BEX3SNLI2EZ4SJ0WHVQEY3ZA5';
 guac.clientSecret = 'YKEJGAP4EJ12E4QR1ZZ3K5WR0W0AZSPDZCOEXKYX3TISEMRU';
 
+
+guac.init = function() {
 	//What happens when you submit the form?
 	$('.search').on('submit', function(e) {
 		// Prevent the default
@@ -14,7 +15,7 @@ guac.clientSecret = 'YKEJGAP4EJ12E4QR1ZZ3K5WR0W0AZSPDZCOEXKYX3TISEMRU';
 		guac.location = $('.location').val();
 		console.log('We should eat some guacamole in ' + guac.location);
 		// Run function with user entered location
-		guac.getData(guac.location);
+		guac.getPlaces(guac.location);
 		// $('.location').val();
 
 	});
@@ -25,7 +26,7 @@ guac.clientSecret = 'YKEJGAP4EJ12E4QR1ZZ3K5WR0W0AZSPDZCOEXKYX3TISEMRU';
 //=========
 
 // Function that will go and get information from the API
-guac.getData = function(place) {
+guac.getPlaces = function(place) {
 	// Ajax response to gather data from API
 	$.ajax( {
 
@@ -44,27 +45,49 @@ guac.getData = function(place) {
 			// v : '20151010',
 			client_id : guac.clientId,
 			client_secret : guac.clientSecret,
-			near : place,
+			// near : place,
+			near : guac.location,
 			radius : 1000,
 			// limit : 10,
-			query : 'guacamole',
-			openNow : true,
-			venuePhotos : '1'
+			query : 'guacamole'
+			// openNow : true,
+			// venuePhotos : '1'
 		},
 		success : function(result) {
 			console.log(result);
-			console.log("The eagle has landed plus" + result);
-			// Display data that has come back using another function
+			guac.displayPlaces(result);	
+
+			
 		}
 	}); // end ajax
-} // end .getData
+} // end .getPlaces
 
 // Function that is used to display information in html
 
-guac.display = function(result) {
+guac.displayPlaces = function(result) {
 
-	var guacResults = result.response.groups[0].items[0].venue.name;
-	console.log(guacResults);
+	//clear old results to find new ones??
+
+	//create variable that holds path to data
+
+	var places = result.response.groups[0].items;
+	console.log(places);
+
+	// create for loop that will loop through array being held in items above
+
+	for (i=0; i < places.length; i++) {
+
+		//create blank div
+		var div = $('<div>').addClass('places clearfix');
+
+		//get name of venue
+		var h3 = $('<h3>').text(places[i].venue.name);
+
+		//append all of the variables into the div
+		div.append(h3);
+
+	}
+
 }
 
 
