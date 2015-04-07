@@ -56,7 +56,6 @@ guac.getPlaces = function(place) {
 		success : function(result) {
 			console.log(result);
 			guac.displayPlaces(result);	
-
 			
 		}
 	}); // end ajax
@@ -67,6 +66,7 @@ guac.getPlaces = function(place) {
 guac.displayPlaces = function(result) {
 
 	//clear old results to find new ones??
+	$(".results").html('');
 
 	//create variable that holds path to data
 
@@ -80,16 +80,23 @@ guac.displayPlaces = function(result) {
 		//create blank div
 		var div = $('<div>').addClass('places clearfix');
 
-		//get name of venue
+		//get venue name
 		var h3 = $('<h3>').text(places[i].venue.name);
 
-		//append all of the variables into the div
-		div.append(h3);
+		//get venue address
+
+		//venue photo
+		var photoPrefix = places[i].venue.photos.groups[0].items[0];
+		var photo = $('<img>').attr('src',photoPrefix.prefix + photoPrefix.height + photoPrefix.suffix);
+
+		//append that div to the results section
+		$('.results').append(h3);
+		$('.results').append(photo);
+
 
 	}
 
 }
-
 
 // Document ready statement
 $(function() {
