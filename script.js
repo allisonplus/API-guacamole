@@ -50,7 +50,7 @@ guac.getPlaces = function(place) {
 			client_secret : guac.clientSecret,
 			ll : guac.lat + "," + guac.lon,
 			// near : guac.location,
-			radius : 2000,
+			radius : 1200,
 			limit : 9,
 			query : 'guacamole',
 			openNow : true,
