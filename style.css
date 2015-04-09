@@ -12,8 +12,12 @@ body {
 }
 
 h1 {
-	font-family: sans-serif;
-	font-size: 32px;
+	font-family:sans-serif;
+	font-size:30px;
+}
+
+h3 {
+	font-size:22px;
 }
 
 img {
@@ -21,7 +25,7 @@ img {
 }
 
 .wrapper {
-	margin:100px;
+	margin:10% 10% 3% 10%;
 }
 
 input[type=text] {
@@ -43,18 +47,40 @@ input[type=submit] {
 }
 
 .places {
-	width:33%;
+	width:31%;
 	float:left;
+	margin:1%;
 }
 
 .places img {
-	width:90%;
+	width:95%;
 }
 
 a.tweet, .addr {
 	display:block;
+	text-decoration:none;
+	line-height:1.7;
+	text-align:center;
+	color:white;
+}
+
+.fa {
+	color:#155c33;
 }
 
 .addr {
 	padding-top:4%;
+}
+
+footer {
+	padding-top:3%;
+}
+
+footer span {
+	color:#ce2029;
+}
+
+footer a {
+	text-decoration:none;
+	color:#155c33;
 }
