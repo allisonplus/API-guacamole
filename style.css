@@ -7,7 +7,7 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
 
 body {
 	text-align:center;
-	color:white;
+	color:#333;
 	background:#2ecc71;
 }
 

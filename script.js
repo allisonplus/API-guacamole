@@ -119,3 +119,5 @@ guac.displayPlaces = function(result) {
 $(function() {
 	guac.init();
 });
+
+//potential extras: suburbia (expands distance in meters); no chains; planning ahead
