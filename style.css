@@ -92,12 +92,24 @@ img.avocado {
 	width:95%;
 }
 
+p.rating, p.dist {
+	margin:0;
+}
+
 a.tweet, .addr {
 	display:block;
 	text-decoration:none;
 	line-height:1.7;
 	text-align:center;
 	color:black;
+}
+
+p.rating {
+	padding-top:3%;
+}
+
+.addr {
+	padding-top:3%;
 }
 
 .fa {

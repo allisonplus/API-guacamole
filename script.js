@@ -10,7 +10,7 @@ guac.init = function() {
 	$('.search').on('submit', function(e) {
 
 		// Begin loading animation
-		$('.waiting').addClass('loading avocadoFade');
+		$('.waiting').addClass('loading');
 		$('img.avocado').addClass('avocadoFade');
 		// Prevent the default
 		e.preventDefault();
@@ -57,7 +57,7 @@ guac.getPlaces = function(place) {
 			guac.displayPlaces(result);	
 
 			// End Loading Animation
-			$(".waiting").removeClass('loading avocadoFade');
+			$(".waiting").removeClass('loading');
 			$('img.avocado').removeClass('avocadoFade');
 		}
 
@@ -67,14 +67,14 @@ guac.getPlaces = function(place) {
 // Function that is used to display information in html
 guac.displayPlaces = function(result) {
 
-	//clear old results to find new ones??
+	//clear old results to find new ones
 	$(".results").html('');
 	//create variable that holds path to data
 	var places = result.response.groups[0].items;
 
 	//if there aren't any results, display this message to the user
 	if (places.length === 0) {
-			var zilch = $('<h4>').text("Uh oh.  It looks like there aren't any places that are open near you that have guac.");
+			var zilch = $('<h4>').text("Uh oh.  It looks like there aren't any open places near you that have guac.");
 			$('section.results').append(zilch);
 	}
 
@@ -89,9 +89,9 @@ guac.displayPlaces = function(result) {
 		var addrPrefix = "https://foursquare.com/v/" + places[i].venue.id;
 		var addr = $('<a class="addr">').attr('href', addrPrefix).html('<i class="fa fa-home"></i> ' + places[i].venue.location.address);
 		//get distance from current location
-		var dist = $('<p>').text('You are ' + places[i].venue.location.distance + 'm away.');
+		var dist = $('<p class="dist">').text('You are ' + places[i].venue.location.distance + 'm away.');
 		//get rating of venue
-		var rating = $('<p>').text(places[i].venue.rating);
+		var rating = $('<p class="rating">').text(places[i].venue.rating);
 		//twitter
 		var twitterPrefix = "https://www.twitter.com/";
 		if(places[i].venue.contact.twitter) {
