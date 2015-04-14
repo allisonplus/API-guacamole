@@ -72,8 +72,15 @@ guac.displayPlaces = function(result) {
 	//create variable that holds path to data
 	var places = result.response.groups[0].items;
 
+	//if there aren't any results, display this message to the user
+	if (places.length === 0) {
+			var zilch = $('<h4>').text("Uh oh.  It looks like there aren't any places that are open near you that have guac.");
+			$('section.results').append(zilch);
+	}
+
 	// LOOP that will go through array being held in items above
 	for (i=0; i < places.length; i++) {
+
 		//create blank div
 		var div = $('<div>').addClass('places');
 		//get venue name
@@ -107,5 +114,3 @@ guac.displayPlaces = function(result) {
 $(function() {
 	guac.init();
 });
-
-//potential extras: suburbia (expands distance in meters); no chains; planning ahead
