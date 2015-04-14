@@ -85,7 +85,7 @@ img.avocado {
 	width:31%;
 	float:left;
 	margin:1%;
-	min-height:580px;
+	min-height:540px;
 }
 
 .places img {
@@ -105,10 +105,6 @@ a.tweet, .addr {
 }
 
 p.rating {
-	padding-top:3%;
-}
-
-.addr {
 	padding-top:3%;
 }
 
@@ -148,7 +144,7 @@ p.credit {
 	.places {
 		width:45%;
 		margin:2%;
-		min-height:640px;
+		min-height:600px;
 	}
 
 	img {
@@ -166,7 +162,7 @@ p.credit {
 	.places {
 		width:46%;
 		margin:2%;
-		min-height:590px;
+		min-height:560px;
 	}
 
 	h3 {
@@ -181,7 +177,7 @@ p.credit {
 		width:50%;
 		margin:0;
 		margin-top:3%;
-		min-height:480px;
+		min-height:500px;
 	}
 
 	h3 {
@@ -199,16 +195,17 @@ p.credit {
 
 @media all and (max-width: 600px) {
 	.places {
-		min-height:450px;
+		min-height:455px;
 	}
 
 }
 
-@media all and (max-width: 500px) {
+@media all and (max-width: 550px) {
 
 	.places {
 		width:100%;
 		margin-top:5%;
+		min-height:445px;
 	}
 
 	.places img {
@@ -219,13 +216,25 @@ p.credit {
 		padding-top:10%;
 	}
 
+	footer span {
+		font-size:16px;
+	}
+
 }
 
 @media all and (max-width: 375px) {
 	footer {
-	width:85%;
-	margin:0 auto;
-	font-size:12px;
+		width:85%;
+		margin:0 auto;
+		font-size:12px;
+	}
+
+	footer span {
+		font-size:14px;
+	}
+
+	p.credit {
+		font-size:12px;
 	}
 }
 
@@ -234,5 +243,10 @@ p.credit {
 	footer {
 		width:80%;
 		margin:0 auto;
+		font-size:10px;
+	}
+
+	p.credit {
+		font-size:10px;
 	}
 }
