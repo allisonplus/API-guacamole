@@ -41,31 +41,54 @@ input[type=text] {
 input[type=submit] {
 	font-size: 18px;
 	padding:10px;
-	border-radius:12px;
-	background: white;
+	border-radius:25px;
+	background:#f3f3f3;
 	color:#19703e;
 	border:1px solid #19703e;
 }
 
 /*====CSS Loading Animation====*/
 
-.spinner {
-  padding-top:5%;
-  font-size:20px;
-  display:none;
-}
-
-.loading {
-  display:initial;
-}
-
 img {
   margin-top:3%;
 }
 
+.waiting {
+  display:none;
+}
+
+.loading {
+  padding-top:3%;
+  font-size:20px;
+  display:initial;
+}
+
+.avocadoFade {
+  -webkit-animation: pitFade 1.2s infinite;
+  -moz-animation:    pitFade 1.2s infinite;
+  -o-animation:      pitFade 1.2s infinite;
+  animation:         pitFade 1.2s infinite;
+  animation-timing-function: ease-in;
+}
+
+@-webkit-keyframes pitFade {
+  0%   { opacity: 0.1; }
+  10%   { opacity: 0.1; }
+  20%   { opacity: 0.2; }
+  30%   { opacity: 0.3; }
+  40%   { opacity: 0.4; }
+  50%   { opacity: 0.5; }
+  60%   { opacity: 0.6; }
+  70%   { opacity: 0.7; }
+  80%   { opacity: 0.8; }
+  90%   { opacity: 0.9; }
+  100% { opacity: 1; }
+}
+
 /*====Results====*/
+
 .results {
-	padding-top:3%;
+	/*padding-top:1%;*/
 }
 
 .places {

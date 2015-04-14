@@ -9,7 +9,9 @@ guac.init = function() {
 	//What happens when you submit the form?
 	$('.search').on('submit', function(e) {
 
-		$(".spinner").addClass('loading');
+		// Begin loading animation
+		$('.waiting').addClass('loading');
+		$('img.avocado').addClass('avocadoFade');
 		// Prevent the default
 		e.preventDefault();
 
@@ -17,7 +19,6 @@ guac.init = function() {
 		navigator.geolocation.getCurrentPosition(function(position) {
 				  guac.lat = position.coords.latitude;
 				  guac.lon = position.coords.longitude;
-				  console.log("I got it!" + guac.lon + " , " + guac.lat);
 		//run AJAX call function
 			guac.getPlaces();
 		}); 
@@ -46,16 +47,20 @@ guac.getPlaces = function(place) {
 			client_id : guac.clientId,
 			client_secret : guac.clientSecret,
 			ll : guac.lat + "," + guac.lon,
-			radius : 2000,
+			radius : 1500,
 			limit : 9,
 			query : 'guacamole',
-			// openNow : true,
+			openNow : true,
 			venuePhotos : '1'
 		},
 		success : function(result) {
 			guac.displayPlaces(result);	
-			$(".spinner").removeClass('loading');
+
+			// End Loading Animation
+			$(".waiting").removeClass('loading');
+			$('img.avocado').removeClass('avocadoFade');
 		}
+
 	}); // end ajax
 } // end .getPlaces
 
@@ -66,7 +71,6 @@ guac.displayPlaces = function(result) {
 	$(".results").html('');
 	//create variable that holds path to data
 	var places = result.response.groups[0].items;
-	console.log(places);
 
 	// LOOP that will go through array being held in items above
 	for (i=0; i < places.length; i++) {
