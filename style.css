@@ -85,6 +85,7 @@ img.avocado {
 	width:31%;
 	float:left;
 	margin:1%;
+	min-height:580px;
 }
 
 .places img {
@@ -101,10 +102,6 @@ a.tweet, .addr {
 
 .fa {
 	color:#155c33;
-}
-
-.addr {
-	/*padding-top:4%;*/
 }
 
 
@@ -128,6 +125,10 @@ footer p {
 	margin:0;
 }
 
+p.credit {
+	font-size:14px;
+}
+
 /*=====MEDIA QUERIES======*/
 
 @media all and (max-width: 1100px) {
@@ -135,6 +136,7 @@ footer p {
 	.places {
 		width:45%;
 		margin:2%;
+		min-height:640px;
 	}
 
 	img {
@@ -152,6 +154,7 @@ footer p {
 	.places {
 		width:46%;
 		margin:2%;
+		min-height:590px;
 	}
 
 	h3 {
@@ -166,6 +169,7 @@ footer p {
 		width:50%;
 		margin:0;
 		margin-top:3%;
+		min-height:480px;
 	}
 
 	h3 {
@@ -179,6 +183,13 @@ footer p {
 	section.results p {
 		margin:0;
 	}
+}
+
+@media all and (max-width: 600px) {
+	.places {
+		min-height:450px;
+	}
+
 }
 
 @media all and (max-width: 500px) {

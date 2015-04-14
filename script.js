@@ -47,10 +47,10 @@ guac.getPlaces = function(place) {
 			client_id : guac.clientId,
 			client_secret : guac.clientSecret,
 			ll : guac.lat + "," + guac.lon,
-			radius : 1500,
+			radius : 3500,
 			limit : 9,
 			query : 'guacamole',
-			openNow : true,
+			// openNow : true,
 			venuePhotos : '1'
 		},
 		success : function(result) {
