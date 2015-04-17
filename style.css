@@ -9,11 +9,12 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
 
 body {
 	text-align:center;
-	color:#333;
+	color:#2F3633;
+	background:#E0E0E0;
 }
 
 h1, h3, p, a {
-	font-family: 'Istok Web', sans-serif;
+	font-family: 'Karla', sans-serif;
 }
 
 h1 {
@@ -25,6 +26,10 @@ h3 {
 	margin:1%;
 }
 
+p {
+	font-size:22px;
+}
+
 img {
 	max-width:100%;
 }
@@ -33,12 +38,16 @@ img {
 	margin:5% 5% 3% 5%;
 }
 
+
 input[type=submit] {
-	font-size:18px;
-	padding:10px;
-	background:white;
-	color"#333;
-	border:1px solid #19703e;
+	font-size:13px;
+	padding:15px;
+	background:#85AF58;
+	color:#FFF;
+	border:none;
+	border-radius:20px;
+	text-transform:uppercase;
+	letter-spacing:2px;
 }
 
 /*====CSS Loading Animation====*/
@@ -81,6 +90,14 @@ img.avocado {
 
 /*====Results====*/
 
+section.results {
+	background:#FFF;
+	border-radius:10px;
+	border:3px solid #ACBCB5;
+	margin-top:3%;
+	padding:2% 3%;
+}
+
 .places {
 	width:31%;
 	float:left;
@@ -121,16 +138,18 @@ footer {
 
 footer span {
 	color:#ce2029;
-	font-size:22px;
 }
 
 footer a {
 	text-decoration:none;
-	color:#155c33;
+	color:#2F3633;
+	/*font-weight:400;*/
+	/*font-style:italic;*/
 }
 
 footer p {
 	margin:0;
+	font-size:16px;
 }
 
 p.credit {
