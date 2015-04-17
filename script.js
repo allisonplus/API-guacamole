@@ -47,10 +47,10 @@ guac.getPlaces = function(place) {
 			client_id : guac.clientId,
 			client_secret : guac.clientSecret,
 			ll : guac.lat + "," + guac.lon,
-			radius : 3500,
+			radius : 1500,
 			limit : 9,
 			query : 'guacamole',
-			// openNow : true,
+			openNow : true,
 			venuePhotos : '1'
 		},
 		success : function(result) {
@@ -104,7 +104,7 @@ guac.displayPlaces = function(result) {
 		var photoPrefix = places[i].venue.photos.groups[0].items[0];
 		var photo = $('<img>').attr('src',photoPrefix.prefix + photoPrefix.height + photoPrefix.suffix);
 		//put all of the variables into the div
-		div.append(h3, photo, rating, dist, addr, tweet);
+		div.append(h3, photo, rating, dist, addr);
 		//append that div to the results section of the html
 		$('section.results').append(div);
 	}

@@ -24,6 +24,7 @@ h1 {
 h3 {
 	font-size:22px;
 	margin:1%;
+	padding-bottom:2%;
 }
 
 p {
@@ -37,7 +38,6 @@ img {
 .wrapper {
 	margin:5% 5% 3% 5%;
 }
-
 
 input[type=submit] {
 	font-size:13px;
@@ -95,14 +95,14 @@ section.results {
 	border-radius:10px;
 	border:3px solid #ACBCB5;
 	margin-top:3%;
-	padding:2% 3%;
+	padding:1%;
 }
 
 .places {
 	width:31%;
 	float:left;
 	margin:1%;
-	min-height:540px;
+	/*min-height:530px;*/
 }
 
 .places img {
@@ -143,8 +143,6 @@ footer span {
 footer a {
 	text-decoration:none;
 	color:#2F3633;
-	/*font-weight:400;*/
-	/*font-style:italic;*/
 }
 
 footer p {
@@ -163,7 +161,7 @@ p.credit {
 	.places {
 		width:45%;
 		margin:2%;
-		min-height:600px;
+		/*min-height:600px;*/
 	}
 
 	img {
@@ -181,7 +179,7 @@ p.credit {
 	.places {
 		width:46%;
 		margin:2%;
-		min-height:560px;
+		/*min-height:560px;*/
 	}
 
 	h3 {
@@ -196,7 +194,7 @@ p.credit {
 		width:50%;
 		margin:0;
 		margin-top:3%;
-		min-height:500px;
+		/*min-height:500px;*/
 	}
 
 	h3 {
@@ -214,7 +212,7 @@ p.credit {
 
 @media all and (max-width: 600px) {
 	.places {
-		min-height:455px;
+		/*min-height:455px;*/
 	}
 
 }
@@ -224,7 +222,7 @@ p.credit {
 	.places {
 		width:100%;
 		margin-top:5%;
-		min-height:445px;
+		/*min-height:445px;*/
 	}
 
 	.places img {
