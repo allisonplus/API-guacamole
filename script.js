@@ -47,7 +47,7 @@ guac.getPlaces = function(place) {
 			client_id : guac.clientId,
 			client_secret : guac.clientSecret,
 			ll : guac.lat + "," + guac.lon,
-			radius : 1500,
+			radius : 3500,
 			limit : 9,
 			query : 'guacamole',
 			openNow : true,
@@ -88,17 +88,23 @@ guac.displayPlaces = function(result) {
 		//get venue address
 		var addrPrefix = "https://foursquare.com/v/" + places[i].venue.id;
 		var addr = $('<a class="addr">').attr('href', addrPrefix).html('<i class="fa fa-home"></i> ' + places[i].venue.location.address);
-		//get distance from current location
-		var dist = $('<p class="dist">').text('You are ' + places[i].venue.location.distance + 'm away.');
+
+		// if distance from current location is more than 1000m, convert it to lm and attach different concatenation to add to page
+		if (places[i].venue.location.distance > 1000) {
+			var dist = $('<p class="dist">').text('You are '+ ((places[i].venue.location.distance/1000).toFixed(1)) + 'km away.');
+		} else {
+			var dist = $('<p class="dist">').text('You are ' + places[i].venue.location.distance + 'm away.');
+		}
+
 		//get rating of venue
 		var rating = $('<p class="rating">').text(places[i].venue.rating);
 		//twitter
-		var twitterPrefix = "https://www.twitter.com/";
-		if(places[i].venue.contact.twitter) {
-			var tweet = $('<a class="tweet">').attr('href', twitterPrefix + places[i].venue.contact.twitter).html('<i class="fa fa-twitter-square"></i> ' + '@' + places[i].venue.contact.twitter);
-		} else {
-			var tweet = '';
-		}
+		// var twitterPrefix = "https://www.twitter.com/";
+		// if(places[i].venue.contact.twitter) {
+		// 	var tweet = $('<a class="tweet">').attr('href', twitterPrefix + places[i].venue.contact.twitter).html('<i class="fa fa-twitter-square"></i> ' + '@' + places[i].venue.contact.twitter);
+		// } else {
+		// 	var tweet = '';
+		// }
 
 		//venue photo
 		var photoPrefix = places[i].venue.photos.groups[0].items[0];
