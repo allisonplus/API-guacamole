@@ -97,14 +97,7 @@ guac.displayPlaces = function(result) {
 		}
 
 		//get rating of venue
-		var rating = $('<p class="rating">').text(places[i].venue.rating);
-		//twitter
-		// var twitterPrefix = "https://www.twitter.com/";
-		// if(places[i].venue.contact.twitter) {
-		// 	var tweet = $('<a class="tweet">').attr('href', twitterPrefix + places[i].venue.contact.twitter).html('<i class="fa fa-twitter-square"></i> ' + '@' + places[i].venue.contact.twitter);
-		// } else {
-		// 	var tweet = '';
-		// }
+		var rating = $('<p class="rating">').text(places[i].venue.rating + ' stars!');
 
 		//venue photo
 		var photoPrefix = places[i].venue.photos.groups[0].items[0];
