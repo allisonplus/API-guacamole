@@ -90,19 +90,14 @@ img.avocado {
 
 /*====Results====*/
 
-section.results {
-	background:#FFF;
-	border-radius:10px;
-	border:3px solid #ACBCB5;
-	margin-top:3%;
-	padding:1%;
-}
-
 .places {
 	width:31%;
 	float:left;
+	background:#FFF;
+	border-radius:10px;
+	border:3px solid #ACBCB5;
 	margin:1%;
-	/*min-height:530px;*/
+	padding:1%;
 }
 
 .places img {
@@ -161,7 +156,6 @@ p.credit {
 	.places {
 		width:45%;
 		margin:2%;
-		/*min-height:600px;*/
 	}
 
 	img {
@@ -179,7 +173,6 @@ p.credit {
 	.places {
 		width:46%;
 		margin:2%;
-		/*min-height:560px;*/
 	}
 
 	h3 {
@@ -194,7 +187,6 @@ p.credit {
 		width:50%;
 		margin:0;
 		margin-top:3%;
-		/*min-height:500px;*/
 	}
 
 	h3 {
@@ -210,27 +202,28 @@ p.credit {
 	}
 }
 
-@media all and (max-width: 600px) {
-	.places {
-		/*min-height:455px;*/
-	}
 
-}
 
-@media all and (max-width: 550px) {
+@media all and (max-width: 590px) {
 
 	.places {
-		width:100%;
-		margin-top:5%;
-		/*min-height:445px;*/
+		width:95%;
+		margin:3%;
+		padding:3%;
 	}
 
 	.places img {
-		width:85%;
+		width:95%;
+	}
+
+	p.rating {
+		padding-top:0;
 	}
 
 	footer {
 		padding-top:10%;
+		width:65%;
+		margin:0 auto;
 	}
 
 	footer span {
@@ -242,7 +235,6 @@ p.credit {
 @media all and (max-width: 375px) {
 	footer {
 		width:85%;
-		margin:0 auto;
 		font-size:12px;
 	}
 
