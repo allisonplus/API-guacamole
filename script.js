@@ -47,7 +47,7 @@ guac.getPlaces = function(place) {
 			client_id : guac.clientId,
 			client_secret : guac.clientSecret,
 			ll : guac.lat + "," + guac.lon,
-			radius : 3500,
+			// radius : 900,
 			limit : 9,
 			query : 'guacamole',
 			openNow : true,
@@ -89,7 +89,7 @@ guac.displayPlaces = function(result) {
 		var addrPrefix = "https://foursquare.com/v/" + places[i].venue.id;
 		var addr = $('<a class="addr">').attr('href', addrPrefix).html('<i class="fa fa-home"></i> ' + places[i].venue.location.address);
 
-		// if distance from current location is more than 1000m, convert it to lm and attach different concatenation to add to page
+		// if distance from current location is more than 1000m, convert it to km and attach different concatenation to add to page
 		if (places[i].venue.location.distance > 1000) {
 			var dist = $('<p class="dist">').text('You are '+ ((places[i].venue.location.distance/1000).toFixed(1)) + 'km away.');
 		} else {
@@ -107,7 +107,8 @@ guac.displayPlaces = function(result) {
 		//append that div to the results section of the html
 		$('section.results').append(div);
 	}
-}
+} //end displayResults
+
 
 // Document ready statement
 $(function() {

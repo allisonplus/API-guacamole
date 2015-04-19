@@ -124,6 +124,12 @@ p.rating {
 	color:#155c33;
 }
 
+/*====No Results====*/
+
+/*button.suburbia {
+	width:200px;
+}*/
+
 
 /*====Footer====*/
 
@@ -181,16 +187,16 @@ p.credit {
 
 }
 
-@media all and (max-width: 700px) {
+@media all and (max-width: 710px) {
 
 	.places {
-		width:50%;
-		margin:0;
-		margin-top:3%;
+		width:46%;
+		margin-top:2%;
 	}
 
 	h3 {
 		margin:0;
+		font-size:20px;
 	}
 
 	img {
@@ -216,12 +222,18 @@ p.credit {
 		width:95%;
 	}
 
+	h3 {
+		font-size:28px;
+		margin-bottom:2%;
+		padding:0;
+	}
+
 	p.rating {
 		padding-top:0;
 	}
 
 	footer {
-		padding-top:10%;
+		padding-top:5%;
 		width:65%;
 		margin:0 auto;
 	}
