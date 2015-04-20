@@ -10,7 +10,7 @@ guac.init = function() {
 	$('.search').on('submit', function(e) {
 
 		// Begin loading animation
-		// $('.waiting').addClass('loading');
+		$('.waiting').removeClass('loading');
 		$('img.avocado').addClass('avocadoFade');
 		// Prevent the default
 		e.preventDefault();
@@ -47,17 +47,18 @@ guac.getPlaces = function(place) {
 			client_id : guac.clientId,
 			client_secret : guac.clientSecret,
 			ll : guac.lat + "," + guac.lon,
-			radius : 900,
+			radius : 1500,
 			limit : 9,
 			query : 'guacamole',
 			openNow : true,
+			sortByDistance: 1,
 			venuePhotos : '1'
 		},
 		success : function(result) {
 			guac.displayPlaces(result);	
 
 			// End Loading Animation
-			// $('.waiting').removeClass('loading');
+			$('.waiting').addClass('loading');
 			$('img.avocado').removeClass('avocadoFade');
 		}
 
@@ -71,6 +72,7 @@ guac.displayPlaces = function(result) {
 	$(".results").html('');
 	//create variable that holds path to data
 	var places = result.response.groups[0].items;
+	console.log(places);
 
 	//if there aren't any results, display this message to the user
 	if (places.length === 0) {
