@@ -10,7 +10,7 @@ guac.init = function() {
 	$('.search').on('submit', function(e) {
 
 		// Begin loading animation
-		$('.waiting').addClass('loading');
+		// $('.waiting').addClass('loading');
 		$('img.avocado').addClass('avocadoFade');
 		// Prevent the default
 		e.preventDefault();
@@ -47,7 +47,7 @@ guac.getPlaces = function(place) {
 			client_id : guac.clientId,
 			client_secret : guac.clientSecret,
 			ll : guac.lat + "," + guac.lon,
-			// radius : 900,
+			radius : 900,
 			limit : 9,
 			query : 'guacamole',
 			openNow : true,
@@ -57,7 +57,7 @@ guac.getPlaces = function(place) {
 			guac.displayPlaces(result);	
 
 			// End Loading Animation
-			$(".waiting").removeClass('loading');
+			// $('.waiting').removeClass('loading');
 			$('img.avocado').removeClass('avocadoFade');
 		}
 

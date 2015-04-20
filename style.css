@@ -57,13 +57,13 @@ img.avocado {
 }
 
 .waiting {
-  display:none;
+  display:all;
 }
 
 .loading {
+  display:none;
   padding-top:3%;
   font-size:20px;
-  display:initial;
 }
 
 .avocadoFade {
