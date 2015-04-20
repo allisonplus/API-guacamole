@@ -72,7 +72,7 @@ guac.displayPlaces = function(result) {
 	$(".results").html('');
 	//create variable that holds path to data
 	var places = result.response.groups[0].items;
-	console.log(places);
+	// console.log(places);
 
 	//if there aren't any results, display this message to the user
 	if (places.length === 0) {
