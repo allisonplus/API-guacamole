@@ -124,12 +124,6 @@ p.rating {
 	color:#155c33;
 }
 
-/*====No Results====*/
-
-/*button.suburbia {
-	width:200px;
-}*/
-
 
 /*====Footer====*/
 
@@ -265,6 +259,10 @@ p.credit {
 		width:80%;
 		margin:0 auto;
 		font-size:10px;
+	}
+
+	p {
+		font-size:18px;
 	}
 
 	p.credit {
