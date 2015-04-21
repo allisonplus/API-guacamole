@@ -100,7 +100,7 @@ guac.displayPlaces = function(result) {
 
 		//get rating of venue
 		var rating = $('<p class="rating">').text(places[i].venue.rating + ' stars!');
-
+		
 		//venue photo
 		var photoPrefix = places[i].venue.photos.groups[0].items[0];
 		var photo = $('<img>').attr('src',photoPrefix.prefix + photoPrefix.height + photoPrefix.suffix);
