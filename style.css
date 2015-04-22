@@ -56,6 +56,14 @@ img.avocado {
   margin-top:3%;
 }
 
+img.driving {
+	width:5%;
+}
+
+img.walking {
+	width:5%;
+}
+
 .waiting {
   display:all;
 }
