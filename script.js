@@ -7,6 +7,18 @@ guac.clientSecret = 'YKEJGAP4EJ12E4QR1ZZ3K5WR0W0AZSPDZCOEXKYX3TISEMRU';
 
 guac.init = function() {
 
+	$('a.walking').on('click', function(e) {
+			// e.preventDefault();
+			console.log('we want to walk!');
+			$(walking.checked).prop("checked");
+	});
+
+	$('a.driving').on('click', function(e) {
+			// e.preventDefault();
+			console.log('we want to drive!');
+			$(driving.checked).prop("checked");
+	});
+
 	//What happens when you submit the form?
 	$('.search').on('submit', function(e) {
 
@@ -22,12 +34,12 @@ guac.init = function() {
 				  guac.lon = position.coords.longitude;
 
 		//run AJAX call function
-			if (walking.checked){
-				guac.getPlaces();
-			  // console.log("you want to walk!");
-			} else if (driving.checked) {
-				guac.getCarPlaces();
-			  // console.log("you want to drive!");
+		if (walking.checked){
+			guac.getPlaces();
+			// console.log("you want to walk!");
+		} else if (driving.checked) {
+			guac.getCarPlaces();
+			// console.log("you want to drive!");
 			}
 		}); 
 	}); //end submit

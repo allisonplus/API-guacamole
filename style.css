@@ -32,14 +32,21 @@ p {
 }
 
 img {
-	max-width:100%;
+	max-width:60%;
 }
 
 .wrapper {
 	margin:5% 5% 3% 5%;
 }
 
+/*====Hides Actual Radio Buttons====*/
+input[type=radio] {
+	display:none;
+}
+
+/*====Submit Button====*/
 input[type=submit] {
+	margin-top:3%;
 	font-size:13px;
 	padding:15px;
 	background:#85AF58;
@@ -56,12 +63,8 @@ img.avocado {
   margin-top:3%;
 }
 
-img.driving {
-	width:5%;
-}
-
-img.walking {
-	width:5%;
+a.walking, a.driving {
+	display:inline-block;
 }
 
 .waiting {
