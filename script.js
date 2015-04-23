@@ -6,6 +6,7 @@ guac.clientId = 'M01QAACEECGNTWIG3C3GEC5BEX3SNLI2EZ4SJ0WHVQEY3ZA5';
 guac.clientSecret = 'YKEJGAP4EJ12E4QR1ZZ3K5WR0W0AZSPDZCOEXKYX3TISEMRU';
 
 guac.init = function() {
+
 	//What happens when you submit the form?
 	$('.search').on('submit', function(e) {
 
@@ -19,8 +20,15 @@ guac.init = function() {
 		navigator.geolocation.getCurrentPosition(function(position) {
 				  guac.lat = position.coords.latitude;
 				  guac.lon = position.coords.longitude;
+
 		//run AJAX call function
-			guac.getPlaces();
+			if (walking.checked){
+				guac.getPlaces();
+			  // console.log("you want to walk!");
+			} else if (driving.checked) {
+				guac.getCarPlaces();
+			  // console.log("you want to drive!");
+			}
 		}); 
 	}); //end submit
 } // end .init
@@ -56,7 +64,6 @@ guac.getPlaces = function(place) {
 		},
 		success : function(result) {
 			guac.displayPlaces(result);	
-
 			// End Loading Animation
 			$('.waiting').addClass('loading');
 			$('img.avocado').removeClass('avocadoFade');
@@ -64,6 +71,38 @@ guac.getPlaces = function(place) {
 
 	}); // end ajax
 } // end .getPlaces
+
+guac.getCarPlaces = function(place) {
+	// Ajax response to gather data from API
+	$.ajax( {
+		url : 'https://api.foursquare.com/v2/venues/explore?ll=' + guac.lat + ',' + guac.lon + '&client_id=' + guac.clientID + '&client_secret=' + guac.clientSecret + '&v=20151010',
+		dataType : 'jsonp',
+		type : 'GET',
+		v : '20160806',
+		// Parameters that need to go along with the request
+		data : {
+			intent : 'browse',
+			format :'jsonp',
+			client_id : guac.clientId,
+			client_secret : guac.clientSecret,
+			ll : guac.lat + "," + guac.lon,
+			radius : 50000,
+			limit : 9,
+			query : 'guacamole',
+			openNow : true,
+			sortByDistance: 1,
+			venuePhotos : '1'
+		},
+		success : function(result) {
+			guac.displayPlaces(result);	
+
+			// End Loading Animation
+			$('.waiting').addClass('loading');
+			$('img.avocado').removeClass('avocadoFade');
+		}
+
+	}); // end ajax
+} // end .getCarPlaces
 
 // Function that is used to display information in html
 guac.displayPlaces = function(result) {
