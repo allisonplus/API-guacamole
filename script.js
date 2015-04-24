@@ -11,7 +11,7 @@ guac.init = function() {
 	$('a.walking').on('click', function(e) {
 			e.preventDefault();
 			console.log('we want to walk!');
-			$(walking.checked).prop("checked");
+			// $(walking.checked).prop("checked");
 			$("a.walking").toggleClass("toggleSVG");
 			//remove class from driving icon if selected
 			if($("a.driving").hasClass('toggleSVG')){
@@ -23,9 +23,8 @@ guac.init = function() {
 	$('a.driving').on('click', function(e) {
 			e.preventDefault();
 			console.log('we want to drive!');
-			$(driving.checked).prop("checked");
+			// $(driving.checked).prop("checked");
 			$("a.driving").toggleClass("toggleSVG");
-			//remove class from walking icon if selected
 			if($("a.walking").hasClass('toggleSVG')){
      		$("a.walking").removeClass('toggleSVG');
   		}
@@ -46,12 +45,12 @@ guac.init = function() {
 				  guac.lon = position.coords.longitude;
 
 		//run AJAX call function
-		if (walking.checked){
+		if($("a.walking").hasClass("toggleSVG")) {
 			guac.getPlaces();
-			// console.log("you want to walk!");
-		} else if (driving.checked) {
+			console.log("you wanted to walk!");
+		} else if ($("a.driving").hasClass("toggleSVG")) {
 			guac.getCarPlaces();
-			// console.log("you want to drive!");
+			console.log("you wanted to drive!");
 			}
 		}); 
 	}); //end submit
