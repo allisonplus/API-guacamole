@@ -45,7 +45,6 @@ input[type=radio] {
 }
 
 /*Walking & Driving Icons*/
-
 .toggleSVG {
 	fill:#85AF58;
 }
@@ -141,6 +140,11 @@ p.rating {
 .fa {
 	color:#155c33;
 }
+
+/*Star Ratings (Hopefully)*/
+/*.clipStar {
+  -webkit-clip-path: polygon(50% 0%, 63% 38%, 100% 38%, 69% 59%, 82% 100%, 50% 75%, 18% 100%, 31% 59%, 0 38%, 37% 38%);
+}*/
 
 
 /*====Footer====*/
