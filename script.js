@@ -65,8 +65,6 @@ guac.getPlaces = function(place) {
 
 	// Ajax response to gather data from API
 	$.ajax( {
-		// url : 'https://api.foursquare.com/v2/venues/explore?&v=20151010',
-		// url : 'https://api.foursquare.com/v2/venues/explore?ll=40.7,-74&client_id=M01QAACEECGNTWIG3C3GEC5BEX3SNLI2EZ4SJ0WHVQEY3ZA5&client_secret=YKEJGAP4EJ12E4QR1ZZ3K5WR0W0AZSPDZCOEXKYX3TISEMRU&v=20151010',
 		url : 'https://api.foursquare.com/v2/venues/explore?ll=' + guac.lat + ',' + guac.lon + '&client_id=' + guac.clientID + '&client_secret=' + guac.clientSecret + '&v=20151010',
 		dataType : 'jsonp',
 		type : 'GET',
