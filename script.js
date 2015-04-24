@@ -7,18 +7,28 @@ guac.clientSecret = 'YKEJGAP4EJ12E4QR1ZZ3K5WR0W0AZSPDZCOEXKYX3TISEMRU';
 
 guac.init = function() {
 
+	//Walking icon click
 	$('a.walking').on('click', function(e) {
-			// e.preventDefault();
+			e.preventDefault();
 			console.log('we want to walk!');
 			$(walking.checked).prop("checked");
-			$("svg#writing").css("fill", "#85AF58");
+			$("a.walking").toggleClass("toggleSVG");
+			//remove class from driving icon if selected
+			if($("a.driving").hasClass('toggleSVG')){
+     		$("a.driving").removeClass('toggleSVG');
+  		}
 	});
 
+	//Driving icon click
 	$('a.driving').on('click', function(e) {
-			// e.preventDefault();
+			e.preventDefault();
 			console.log('we want to drive!');
 			$(driving.checked).prop("checked");
-			$("svg#driving").css("fill", "#85AF58");
+			$("a.driving").toggleClass("toggleSVG");
+			//remove class from walking icon if selected
+			if($("a.walking").hasClass('toggleSVG')){
+     		$("a.walking").removeClass('toggleSVG');
+  		}
 	});
 
 	//What happens when you submit the form?

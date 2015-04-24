@@ -44,6 +44,12 @@ input[type=radio] {
 	display:none;
 }
 
+/*Walking & Driving Icons*/
+
+.toggleSVG {
+	fill:#85AF58;
+}
+
 /*====Submit Button====*/
 input[type=submit] {
 	margin-top:3%;
