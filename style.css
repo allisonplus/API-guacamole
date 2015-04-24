@@ -32,7 +32,7 @@ p {
 }
 
 img {
-	max-width:60%;
+	max-width:100%;
 }
 
 .wrapper {
@@ -56,6 +56,7 @@ input[type=submit] {
 	text-transform:uppercase;
 	letter-spacing:2px;
 }
+
 
 /*====CSS Loading Animation====*/
 

@@ -11,12 +11,14 @@ guac.init = function() {
 			// e.preventDefault();
 			console.log('we want to walk!');
 			$(walking.checked).prop("checked");
+			$("svg#writing").css("fill", "#85AF58");
 	});
 
 	$('a.driving').on('click', function(e) {
 			// e.preventDefault();
 			console.log('we want to drive!');
 			$(driving.checked).prop("checked");
+			$("svg#driving").css("fill", "#85AF58");
 	});
 
 	//What happens when you submit the form?
