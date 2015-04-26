@@ -10,11 +10,11 @@ guac.init = function() {
 	//Walking icon click
 	$('a.walking').on('click', function(e) {
 			e.preventDefault();
-			console.log('we want to walk!');
+			//checks off form property
 			$(walking.checked).prop("checked");
 			$("a.walking").toggleClass("toggleSVG");
 			//remove class from driving icon if selected
-			if($("a.driving").hasClass('toggleSVG')){
+			if($("a.driving").hasClass('toggleSVG')) {
      		$("a.driving").removeClass('toggleSVG');
   		}
 	});
@@ -22,17 +22,16 @@ guac.init = function() {
 	//Driving icon click
 	$('a.driving').on('click', function(e) {
 			e.preventDefault();
-			console.log('we want to drive!');
+			//checks off form property
 			$(driving.checked).prop("checked");
 			$("a.driving").toggleClass("toggleSVG");
-			if($("a.walking").hasClass('toggleSVG')){
+			if($("a.walking").hasClass('toggleSVG')) {
      		$("a.walking").removeClass('toggleSVG');
   		}
 	});
 
 	//What happens when you submit the form?
 	$('.search').on('submit', function(e) {
-
 		// Begin loading animation
 		$('.waiting').removeClass('loading');
 		$('img.avocado').addClass('avocadoFade');
@@ -105,7 +104,7 @@ guac.getCarPlaces = function(place) {
 			client_id : guac.clientId,
 			client_secret : guac.clientSecret,
 			ll : guac.lat + "," + guac.lon,
-			radius : 50000,
+			radius : 40000,
 			limit : 9,
 			query : 'guacamole',
 			openNow : true,
@@ -157,13 +156,14 @@ guac.displayPlaces = function(result) {
 		}
 
 		//get rating of venue
-		var rating = $('<p class="rating">').text(places[i].venue.rating + ' stars!');
+		var rating = $('<p class="rating">').text('This place is rated ' + places[i].venue.rating + ' stars!');
 		
 		//venue photo
 		var photoPrefix = places[i].venue.photos.groups[0].items[0];
 		var photo = $('<img>').attr('src',photoPrefix.prefix + photoPrefix.height + photoPrefix.suffix);
+
 		//put all of the variables into the div
-		div.append(h3, photo, rating, dist, addr);
+		div.append(h3, photo, dist, rating, addr, photolink);
 		//append that div to the results section of the html
 		$('section.results').append(div);
 	}

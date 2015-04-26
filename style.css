@@ -22,7 +22,7 @@ h1 {
 }
 
 h3 {
-	font-size:22px;
+	font-size:26px;
 	margin:1%;
 	padding-bottom:2%;
 }
@@ -37,6 +37,10 @@ img {
 
 .wrapper {
 	margin:3% 5% 3% 5%;
+}
+
+p.dist, p.rating {
+	font-size:22px;
 }
 
 /*====Hides Actual Radio Buttons====*/
@@ -133,7 +137,7 @@ p.rating, p.dist {
 	margin:0;
 }
 
-a.tweet, .addr {
+.addr {
 	display:block;
 	text-decoration:none;
 	line-height:1.7;
@@ -141,18 +145,13 @@ a.tweet, .addr {
 	color:black;
 }
 
-p.rating {
+p.dist {
 	padding-top:3%;
 }
 
 .fa {
 	color:#155c33;
 }
-
-/*Star Ratings (Hopefully)*/
-/*.clipStar {
-  -webkit-clip-path: polygon(50% 0%, 63% 38%, 100% 38%, 69% 59%, 82% 100%, 50% 75%, 18% 100%, 31% 59%, 0 38%, 37% 38%);
-}*/
 
 
 /*====Footer====*/
@@ -197,7 +196,7 @@ p.credit {
 @media all and (max-width: 900px) {
 
 	.wrapper {
-		margin:1%;
+		margin:2%;
 	}
 
 	.places {
@@ -314,7 +313,7 @@ p.credit {
 	.wrapper {
 		margin:2%;
 	}
-	
+
 	footer {
 		width:80%;
 		margin:0 auto;
