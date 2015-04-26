@@ -11,7 +11,7 @@ guac.init = function() {
 	$('a.walking').on('click', function(e) {
 			e.preventDefault();
 			console.log('we want to walk!');
-			// $(walking.checked).prop("checked");
+			$(walking.checked).prop("checked");
 			$("a.walking").toggleClass("toggleSVG");
 			//remove class from driving icon if selected
 			if($("a.driving").hasClass('toggleSVG')){
@@ -23,7 +23,7 @@ guac.init = function() {
 	$('a.driving').on('click', function(e) {
 			e.preventDefault();
 			console.log('we want to drive!');
-			// $(driving.checked).prop("checked");
+			$(driving.checked).prop("checked");
 			$("a.driving").toggleClass("toggleSVG");
 			if($("a.walking").hasClass('toggleSVG')){
      		$("a.walking").removeClass('toggleSVG');
@@ -44,15 +44,13 @@ guac.init = function() {
 				  guac.lat = position.coords.latitude;
 				  guac.lon = position.coords.longitude;
 
-		//run AJAX call function
-		if($("a.walking").hasClass("toggleSVG")) {
-			guac.getPlaces();
-			console.log("you wanted to walk!");
-		} else if ($("a.driving").hasClass("toggleSVG")) {
-			guac.getCarPlaces();
-			console.log("you wanted to drive!");
-			}
-		}); 
+			//run AJAX call function
+			if($("a.walking").hasClass("toggleSVG")) {
+				guac.getPlaces();
+			} else if ($("a.driving").hasClass("toggleSVG")) {
+				guac.getCarPlaces();
+				}
+		}); //end geolocation
 	}); //end submit
 } // end .init
 
@@ -76,7 +74,7 @@ guac.getPlaces = function(place) {
 			client_id : guac.clientId,
 			client_secret : guac.clientSecret,
 			ll : guac.lat + "," + guac.lon,
-			radius : 1500,
+			radius : 2500,
 			limit : 9,
 			query : 'guacamole',
 			openNow : true,
