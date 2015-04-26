@@ -18,7 +18,7 @@ h1, h3, p, a {
 }
 
 h1 {
-	font-size:35px;
+	font-size:60px;
 }
 
 h3 {
@@ -28,7 +28,7 @@ h3 {
 }
 
 p {
-	font-size:22px;
+	font-size:24px;
 }
 
 img {
@@ -36,7 +36,7 @@ img {
 }
 
 .wrapper {
-	margin:5% 5% 3% 5%;
+	margin:3% 5% 3% 5%;
 }
 
 /*====Hides Actual Radio Buttons====*/
@@ -51,8 +51,8 @@ input[type=radio] {
 
 /*====Submit Button====*/
 input[type=submit] {
-	margin-top:3%;
-	font-size:13px;
+	margin-top:4%;
+	font-size:15px;
 	padding:15px;
 	background:#85AF58;
 	color:#FFF;
@@ -67,6 +67,14 @@ input[type=submit] {
 
 img.avocado {
   margin-top:3%;
+}
+
+svg#walking {
+	margin-right:35px;
+}
+
+svg#driving {
+	margin-left:35px;
 }
 
 a.walking, a.driving {
@@ -93,7 +101,7 @@ a.walking, a.driving {
 
 @-webkit-keyframes pitFade {
   0%   { opacity: 0.1; }
-  10%   { opacity: 0.1; }
+  10%   { opacity: 0.15; }
   20%   { opacity: 0.2; }
   30%   { opacity: 0.3; }
   40%   { opacity: 0.4; }
@@ -201,6 +209,22 @@ p.credit {
 		margin:1%;
 	}
 
+	a.walking, a.driving {
+		margin-top:3%;
+	}
+
+	svg#walking {
+		margin-right:20px;
+	}
+
+	svg#driving {
+		margin-left:20px;
+	}
+
+	footer p {
+		margin:0 auto;
+	}
+
 }
 
 @media all and (max-width: 710px) {
@@ -238,10 +262,19 @@ p.credit {
 		width:95%;
 	}
 
+	h1 {
+		font-size:35px;
+		margin-bottom:2%;
+	}
+
 	h3 {
 		font-size:28px;
 		margin-bottom:2%;
 		padding:0;
+	}
+
+	p {
+		font-size:18px;
 	}
 
 	p.rating {
@@ -250,7 +283,7 @@ p.credit {
 
 	footer {
 		padding-top:5%;
-		width:65%;
+		width:85%;
 		margin:0 auto;
 	}
 
@@ -277,6 +310,11 @@ p.credit {
 
 
 @media all and (max-width: 320px) {
+
+	.wrapper {
+		margin:2%;
+	}
+	
 	footer {
 		width:80%;
 		margin:0 auto;
