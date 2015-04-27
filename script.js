@@ -12,7 +12,7 @@ guac.init = function() {
 			e.preventDefault();
 			//checks off form property
 			$(walking.checked).prop("checked");
-			$("a.walking").toggleClass("toggleSVG");
+			$("a.walking").addClass("toggleSVG");
 			//remove class from driving icon if selected
 			if($("a.driving").hasClass('toggleSVG')) {
      		$("a.driving").removeClass('toggleSVG');
@@ -24,7 +24,7 @@ guac.init = function() {
 			e.preventDefault();
 			//checks off form property
 			$(driving.checked).prop("checked");
-			$("a.driving").toggleClass("toggleSVG");
+			$("a.driving").addClass("toggleSVG");
 			if($("a.walking").hasClass('toggleSVG')) {
      		$("a.walking").removeClass('toggleSVG');
   		}
@@ -163,7 +163,7 @@ guac.displayPlaces = function(result) {
 		var photo = $('<img>').attr('src',photoPrefix.prefix + photoPrefix.height + photoPrefix.suffix);
 
 		//put all of the variables into the div
-		div.append(h3, photo, dist, rating, addr, photolink);
+		div.append(h3, photo, dist, rating, addr);
 		//append that div to the results section of the html
 		$('section.results').append(div);
 	}

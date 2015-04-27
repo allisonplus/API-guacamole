@@ -73,12 +73,10 @@ img.avocado {
   margin-top:3%;
 }
 
-svg#walking {
-	margin-right:35px;
-}
-
-svg#driving {
-	margin-left:35px;
+svg#walking, svg#driving {
+	padding:20px;
+	border:1px solid #155c33;;
+	border-radius:10px;
 }
 
 a.walking, a.driving {
