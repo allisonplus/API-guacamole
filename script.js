@@ -75,6 +75,7 @@ guac.getPlaces = function(place) {
 			ll : guac.lat + "," + guac.lon,
 			radius : 2500,
 			limit : 9,
+			// price : 2,
 			query : 'guacamole',
 			openNow : true,
 			sortByDistance: 1,
@@ -166,6 +167,9 @@ guac.displayPlaces = function(result) {
 		div.append(h3, photo, dist, rating, addr);
 		//append that div to the results section of the html
 		$('section.results').append(div);
+
+		var price = places[i].venue.price;
+		console.log(price);
 	}
 } //end displayResults
 

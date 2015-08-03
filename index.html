@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Holy Guacamole</title>
+	<title>Holy Guacamole!</title>
 	<link rel="stylesheet" href="style.css">
 	<link rel="icon" type="image/ico" href="avocado.ico">
 	<link href='http://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
@@ -18,6 +18,7 @@
 	<meta name="twitter:title" content="Holy Guacamole!">
 	<meta name="twitter:description" content="A potential solution for the perennial issue of where to find the nearest guacamole.">
 	<meta name="twitter:image:src" content="http://allisontarr.com/guacamole/resources/og-twitter.jpg">
+
 </head>
 <body>
 	
@@ -26,12 +27,12 @@
 		<p>Find the nearest guacamole to you.</p>
 		<p>Choose whether you would you like to walk or drive by selecting one of the icons below.</p>
 
-		<a class="walking toggleSVG" href="#" alt="To Search Within Walking Distance"><svg id="walking" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="140px" height="140px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+		<a class="walking toggleSVG svgColour" href="#" alt="To Search Within Walking Distance"><svg id="walking" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="140px" height="140px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
 		<circle cx="55.66" cy="9.146" r="8.48"/>
 		<path d="M78.847,45.643l-12.228-5.408L58.84,24.224c-0.205-0.548-0.459-1.072-0.759-1.565l-0.185-0.379  c-0.463-0.95-1.19-1.657-2-2.054c-0.933-0.708-2.019-1.23-3.225-1.496c-0.706-0.155-1.412-0.205-2.109-0.177  c-0.62-0.02-1.279,0.073-1.942,0.309c-1.068,0.303-2.074,0.813-2.971,1.5l-18.264,9.66c-0.33,0.173-0.622,0.378-0.898,0.595  c-0.894,0.481-1.578,1.333-1.78,2.408l-2.853,15.118c-0.357,1.891,0.887,3.714,2.779,4.072c1.891,0.355,3.713-0.889,4.069-2.781  l2.677-14.182l9.81-5.19L36.872,49.66c-0.132,0.593-0.18,1.158-0.165,1.696l-3.272,20.436c-0.073,0.098-0.153,0.182-0.221,0.287  L20.342,91.926c-1.611,2.48-1.299,5.543,0.693,6.834c1.993,1.291,4.911,0.328,6.522-2.154L40.434,76.76  c0.405-0.629,0.689-1.293,0.854-1.953c0.151-0.35,0.278-0.715,0.341-1.109l2.428-15.17c0.297,0.084,0.595,0.156,0.896,0.221  c1.014,0.227,1.9,0.574,2.689,0.934l13.435,16.043l4.153,19.805c0.529,2.512,2.842,4.156,5.166,3.672  c2.323-0.492,3.784-2.924,3.253-5.441L69.43,73.652c-0.166-0.795-0.525-1.486-0.993-2.068c-0.158-0.275-0.341-0.545-0.556-0.801  L53.869,54.055l3.824-17.344l3.328,6.849c0.1,0.206,0.218,0.394,0.342,0.58c0.226,0.942,0.823,1.755,1.732,2.158l12.932,5.721  c1.617,0.719,3.56-0.129,4.339-1.89C81.145,48.367,80.467,46.361,78.847,45.643z"/></svg></a>
 
-		<a class="driving" href="#" alt="To search within driving distance"><svg version="1.0" id="driving" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-			 height="140px" viewBox="0 0 100 83.648" enable-background="new 0 0 100 83.648" xml:space="preserve">
+		<a class="driving svgColour" href="#" alt="To search within driving distance"><svg version="1.0" id="driving" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+			 width="140px" height="140px" viewBox="0 0 100 83.648" enable-background="new 0 0 100 83.648" xml:space="preserve">
 		<path d="M15.727,43.753"/>
 		<path d="M90.925,28.696L82.728,7.529C81.195,3.477,77.845,0.029,71.505,0h-11.56H40.188H28.427
 			c-6.311,0.029-9.661,3.477-11.222,7.529L9.006,28.696C5.751,29.116-0.01,32.941,0,40.187v26.951h7.999v8.603
@@ -54,16 +55,16 @@
 		<div class="waiting loading">
 			<p>Loading...</p>
 		</div>
+	</div> <!-- Ends .wrapper -->
 
 		<section class="results clearfix"></section>
 
 		<footer>
-			<p>Created by <a href="http://www.allisontarr.com">Allison Tarr</a> with <span>&hearts;</span> & the FourSquare API</p>
-			<p class="credit">Icons created by <a href="https://thenounproject.com/mikeashley/">Mike Ashley</a> & <a href="https://thenounproject.com/runspired/">Chris Thoburn</a></p>
+			<div class="wrapper">
+				<p>Created by <a href="http://www.allisontarr.com">Allison Tarr</a> with <span>&hearts;</span> & the FourSquare API</p>
+				<p class="credit">Icons created by <a href="https://thenounproject.com/mikeashley/">Mike Ashley</a> & <a href="https://thenounproject.com/runspired/">Chris Thoburn</a></p>
+			</div> <!--/.wrapper-->
 		</footer>
-		
-
-	</div> <!-- Ends .wrapper -->
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="script.js"></script>

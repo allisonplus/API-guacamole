@@ -29,6 +29,7 @@ h3 {
 
 p {
 	font-size:24px;
+	margin:10px;
 }
 
 img {
@@ -36,7 +37,8 @@ img {
 }
 
 .wrapper {
-	margin:3% 5% 3% 5%;
+	max-width:690px;
+	margin: 0 auto;
 }
 
 p.dist, p.rating {
@@ -49,6 +51,10 @@ input[type=radio] {
 }
 
 /*Walking & Driving Icons*/
+
+.svgColour {
+	fill:#2F3633;
+}
 .toggleSVG {
 	fill:#85AF58;
 }
@@ -75,12 +81,18 @@ img.avocado {
 
 svg#walking, svg#driving {
 	padding:20px;
-	border:1px solid #155c33;;
+	border:2px solid #155c33;
 	border-radius:10px;
+	background-color:white;
+}
+
+a.walking {
+	margin-right:1%;
 }
 
 a.walking, a.driving {
 	display:inline-block;
+	margin-top:4%;
 }
 
 .waiting {
@@ -116,6 +128,10 @@ a.walking, a.driving {
 }
 
 /*====Results====*/
+
+.results {
+	margin:3% 5% 3% 5%;
+}
 
 .places {
 	width:31%;
@@ -155,7 +171,7 @@ p.dist {
 /*====Footer====*/
 
 footer {
-	padding-top:3%;
+	padding-top:1%;
 }
 
 footer span {
