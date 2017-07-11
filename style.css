@@ -8,155 +8,161 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
 /*====General Styling====*/
 
 body {
-	text-align:center;
-	color:#2F3633;
-	background:#E0E0E0;
+	background: #E0E0E0;
+	color: #2F3633;
+	text-align: center;
 }
 
-h1, h3, p, a {
+h1,
+h3,
+p,
+a {
 	font-family: 'Karla', sans-serif;
 }
 
 h1 {
-	font-size:60px;
+	font-size: 60px;
 }
 
 h3 {
-	font-size:26px;
-	margin:1%;
-	padding-bottom:2%;
+	font-size: 26px;
+	margin: 1%;
+	padding-bottom: 2%;
 }
 
 p {
-	font-size:24px;
-	margin:10px;
+	font-size: 24px;
+	margin: 10px;
 }
 
 img {
-	max-width:100%;
+	max-width: 100%;
 }
 
 .wrapper {
-	max-width:690px;
+	max-width: 690px;
 	margin: 0 auto;
 }
 
 p.dist, p.rating {
-	font-size:22px;
+	font-size: 22px;
 }
 
 /*====Hides Actual Radio Buttons====*/
 input[type=radio] {
-	display:none;
+	display: none;
 }
 
 /*Walking & Driving Icons*/
 
 .svgColour {
-	fill:#2F3633;
+	fill: #2F3633;
 }
 .toggleSVG {
-	fill:#85AF58;
+	fill: #85AF58;
 }
 
 /*====Submit Button====*/
 input[type=submit] {
-	margin-top:4%;
-	font-size:15px;
-	padding:15px;
-	background:#85AF58;
-	color:#FFF;
-	border:none;
-	border-radius:20px;
-	text-transform:uppercase;
-	letter-spacing:2px;
+	background: #85AF58;
+	border-radius: 20px;
+	border: none;
+	color: #FFF;
+	font-size: 15px;
+	letter-spacing: 2px;
+	margin-top: 4%;
+	padding: 15px;
+	text-transform: uppercase;
 }
 
 
 /*====CSS Loading Animation====*/
 
 img.avocado {
-  margin-top:3%;
+	margin-top:3%;
 }
 
-svg#walking, svg#driving {
-	padding:20px;
-	border:2px solid #155c33;
-	border-radius:10px;
-	background-color:white;
+svg#walking,
+svg#driving {
+	background-color: #FFFFFF;
+	border-radius: 10px;
+	border: 2px solid #155c33;
+	padding: 20px;
 }
 
 a.walking {
-	margin-right:1%;
+	margin-right: 1%;
 }
 
-a.walking, a.driving {
-	display:inline-block;
-	margin-top:4%;
+a.walking,
+a.driving {
+	display: inline-block;
+	margin-top: 4%;
 }
 
 .waiting {
-  display:all;
+	display: all;
 }
 
 .loading {
-  display:none;
-  padding-top:3%;
-  font-size:20px;
+	display: none;
+	font-size: 20px;
+	padding-top: 3%;
 }
 
 .avocadoFade {
-  -webkit-animation: pitFade 1.2s infinite;
-  -moz-animation:    pitFade 1.2s infinite;
-  -o-animation:      pitFade 1.2s infinite;
-  animation:         pitFade 1.2s infinite;
-  animation-timing-function: ease-in;
+	-webkit-animation: pitFade 1.2s infinite;
+	-moz-animation:    pitFade 1.2s infinite;
+	-o-animation:      pitFade 1.2s infinite;
+	animation:         pitFade 1.2s infinite;
+	animation-timing-function: ease-in;
 }
 
 @-webkit-keyframes pitFade {
-  0%   { opacity: 0.1; }
-  10%   { opacity: 0.15; }
-  20%   { opacity: 0.2; }
-  30%   { opacity: 0.3; }
-  40%   { opacity: 0.4; }
-  50%   { opacity: 0.5; }
-  60%   { opacity: 0.6; }
-  70%   { opacity: 0.7; }
-  80%   { opacity: 0.8; }
-  90%   { opacity: 0.9; }
-  100% { opacity: 1; }
+	0%   { opacity: 0.1; }
+	10%   { opacity: 0.15; }
+	20%   { opacity: 0.2; }
+	30%   { opacity: 0.3; }
+	40%   { opacity: 0.4; }
+	50%   { opacity: 0.5; }
+	60%   { opacity: 0.6; }
+	70%   { opacity: 0.7; }
+	80%   { opacity: 0.8; }
+	90%   { opacity: 0.9; }
+	100% { opacity: 1; }
 }
 
 /*====Results====*/
 
 .results {
-	margin:3% 5% 3% 5%;
+	margin: 3% 5% 3% 5%;
 }
 
 .places {
-	width:31%;
-	float:left;
-	background:#FFF;
-	border-radius:10px;
-	border:3px solid #ACBCB5;
-	margin:1%;
-	padding:1%;
+	background: #FFFFFF;
+	border-radius: 10px;
+	border: 3px solid #ACBCB5;
+	float: left;
+	margin: 1%;
+	padding: 1%;
+	width: 31%;
 }
 
 .places img {
-	width:95%;
+	width: 95%;
 }
 
-p.rating, p.dist {
-	margin:0;
+p.rating,
+p.dist {
+	margin: 0;
 }
 
 .addr {
-	display:block;
-	text-decoration:none;
-	line-height:1.7;
-	text-align:center;
-	color:black;
+	display: block;
+	color: #000000;
+	line-height: 1.7;
+	text-align: center;
+	text-decoration: none;
 }
 
 p.dist {
@@ -171,21 +177,21 @@ p.dist {
 /*====Footer====*/
 
 footer {
-	padding-top:1%;
+	padding-top: 1%;
 }
 
 footer span {
-	color:#ce2029;
+	color: #ce2029;
 }
 
 footer a {
-	text-decoration:none;
-	color:#2F3633;
+	color: #2F3633;
+	text-decoration: none;
 }
 
 footer p {
-	margin:0;
-	font-size:16px;
+	font-size: 16px;
+	margin: 0;
 }
 
 p.credit {
@@ -197,12 +203,12 @@ p.credit {
 @media all and (max-width: 1100px) {
 
 	.places {
-		width:45%;
-		margin:2%;
+		margin: 2%;
+		width: 45%;
 	}
 
 	img {
-		margin-top:2%;
+		margin-top: 2%;
 	}
 
 }
@@ -214,20 +220,21 @@ p.credit {
 	}
 
 	.places {
-		width:46%;
-		margin:2%;
+		margin: 2%;
+		width: 46%;
 	}
 
 	h3 {
-		margin:1%;
+		margin: 1%;
 	}
 
-	a.walking, a.driving {
-		margin-top:3%;
+	a.walking,
+	a.driving {
+		margin-top: 3%;
 	}
 
 	footer p {
-		margin:0 auto;
+		margin: 0 auto;
 	}
 
 }
@@ -235,13 +242,13 @@ p.credit {
 @media all and (max-width: 710px) {
 
 	.places {
-		width:46%;
-		margin-top:2%;
+		margin-top: 2%;
+		width: 46%;
 	}
 
 	h3 {
-		margin:0;
-		font-size:20px;
+		font-size: 20px;
+		margin: 0;
 	}
 
 	img {
@@ -249,7 +256,7 @@ p.credit {
 	}
 
 	section.results p {
-		margin:0;
+		margin: 0;
 	}
 }
 
@@ -258,58 +265,58 @@ p.credit {
 @media all and (max-width: 590px) {
 
 	.places {
-		width:95%;
-		margin:3%;
-		padding:3%;
+		margin: 3%;
+		padding: 3%;
+		width: 95%;
 	}
 
 	.places img {
-		width:95%;
+		width: 95%;
 	}
 
 	h1 {
-		font-size:35px;
-		margin-bottom:2%;
+		font-size: 35px;
+		margin-bottom: 2%;
 	}
 
 	h3 {
-		font-size:28px;
-		margin-bottom:2%;
-		padding:0;
+		font-size: 28px;
+		margin-bottom: 2%;
+		padding: 0;
 	}
 
 	p {
-		font-size:18px;
+		font-size: 18px;
 	}
 
 	p.rating {
-		padding-top:0;
+		padding-top: 0;
 	}
 
 	footer {
-		padding-top:5%;
-		width:85%;
-		margin:0 auto;
+		padding-top: 5%;
+		margin: 0 auto;
+		width: 85%;
 	}
 
 	footer span {
-		font-size:16px;
+		font-size: 16px;
 	}
 
 }
 
 @media all and (max-width: 375px) {
 	footer {
-		width:85%;
-		font-size:12px;
+		font-size: 12px;
+		width: 85%;
 	}
 
 	footer span {
-		font-size:14px;
+		font-size: 14px;
 	}
 
 	p.credit {
-		font-size:12px;
+		font-size: 12px;
 	}
 }
 
@@ -317,20 +324,20 @@ p.credit {
 @media all and (max-width: 320px) {
 
 	.wrapper {
-		margin:2%;
+		margin: 2%;
 	}
 
 	footer {
-		width:80%;
-		margin:0 auto;
-		font-size:10px;
+		font-size: 10px;
+		margin: 0 auto;
+		width: 80%;
 	}
 
 	p {
-		font-size:18px;
+		font-size: 18px;
 	}
 
 	p.credit {
-		font-size:10px;
+		font-size: 10px;
 	}
 }

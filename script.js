@@ -15,8 +15,8 @@ guac.init = function() {
 			$("a.walking").addClass("toggleSVG");
 			//remove class from driving icon if selected
 			if($("a.driving").hasClass('toggleSVG')) {
-     		$("a.driving").removeClass('toggleSVG');
-  		}
+			$("a.driving").removeClass('toggleSVG');
+		}
 	});
 
 	//Driving icon click
@@ -26,8 +26,8 @@ guac.init = function() {
 			$(driving.checked).prop("checked");
 			$("a.driving").addClass("toggleSVG");
 			if($("a.walking").hasClass('toggleSVG')) {
-     		$("a.walking").removeClass('toggleSVG');
-  		}
+			$("a.walking").removeClass('toggleSVG');
+		}
 	});
 
 	//What happens when you submit the form?
@@ -82,7 +82,7 @@ guac.getPlaces = function(place) {
 			venuePhotos : '1'
 		},
 		success : function(result) {
-			guac.displayPlaces(result);	
+			guac.displayPlaces(result);
 			// End Loading Animation
 			$('.waiting').addClass('loading');
 			$('img.avocado').removeClass('avocadoFade');
@@ -113,7 +113,7 @@ guac.getCarPlaces = function(place) {
 			venuePhotos : '1'
 		},
 		success : function(result) {
-			guac.displayPlaces(result);	
+			guac.displayPlaces(result);
 
 			// End Loading Animation
 			$('.waiting').addClass('loading');
@@ -158,7 +158,7 @@ guac.displayPlaces = function(result) {
 
 		//get rating of venue
 		var rating = $('<p class="rating">').text('This place is rated ' + places[i].venue.rating + ' stars!');
-		
+
 		//venue photo
 		var photoPrefix = places[i].venue.photos.groups[0].items[0];
 		var photo = $('<img>').attr('src',photoPrefix.prefix + photoPrefix.height + photoPrefix.suffix);
