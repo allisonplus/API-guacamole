@@ -1,0 +1,30 @@
+{
+  "name": "holy-guacamole",
+  "version": "1.0.0",
+  "description": "Locate the nearest guacamole using the FourSquare API.",
+  "main": "script.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-concat": "^2.5.2",
+    "gulp-sass": "^2.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allisonplus/API-guacamole.git"
+  },
+  "keywords": [
+    "guacamole",
+    "foursquare"
+  ],
+  "author": "Allison Tarr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/allisonplus/API-guacamole/issues"
+  },
+  "homepage": "https://github.com/allisonplus/API-guacamole#readme"
+}
