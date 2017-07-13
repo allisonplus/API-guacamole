@@ -6,6 +6,9 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 
+// =========================== //
+// Colour Variables
+// =========================== //
 $color-cod: #2F3633;
 $color-alto: #E0E0E0;
 $color-avocado: #85AF58;
@@ -14,19 +17,15 @@ $color-white: #ffffff;
 $color-cardinal: #ce2029;
 $color-edward: #ACBCB5;
 
-/*====General Styling====*/
 
+// =========================== //
+// Global Styles
+// =========================== //
 body {
 	background: $color-alto;
 	color: $color-cod;
-	text-align: center;
-}
-
-h1,
-h3,
-p,
-a {
 	font-family: 'Karla', sans-serif;
+	text-align: center;
 }
 
 h1 {
@@ -59,7 +58,9 @@ p.rating {
 }
 
 
-/*Walking & Driving Icons*/
+// =========================== //
+// Walking + Driving Icons
+// =========================== //
 button {
 	background-color: transparent;
 	border: none;
@@ -68,11 +69,15 @@ button {
 .svgColour {
 	fill: $color-cod;
 }
+
 .toggleSVG {
 	fill: $color-avocado;
 }
 
-/*====Submit Button====*/
+
+// =========================== //
+// Submit Button
+// =========================== //
 input[type=submit] {
 	background: $color-avocado;
 	border-radius: 20px;
@@ -86,10 +91,11 @@ input[type=submit] {
 }
 
 
-/*====CSS Loading Animation====*/
-
+// =========================== //
+// CSS Loading Animation
+// =========================== //
 img.avocado {
-	margin-top:3%;
+	margin-top: 3%;
 }
 
 svg#walking,
@@ -100,12 +106,12 @@ svg#driving {
 	padding: 20px;
 }
 
-a.walking {
+button .walking {
 	margin-right: 1%;
 }
 
-a.walking,
-a.driving {
+button.walking,
+button.driving {
 	display: inline-block;
 	margin-top: 4%;
 }
@@ -142,7 +148,10 @@ a.driving {
 	100% { opacity: 1; }
 }
 
-/*====Results====*/
+
+// =========================== //
+// Results
+// =========================== //
 .results {
 	margin: 3% 5% 3% 5%;
 }
@@ -155,10 +164,10 @@ a.driving {
 	margin: 1%;
 	padding: 1%;
 	width: 31%;
-}
 
-.places img {
-	width: 95%;
+	img {
+		width: 95%;
+	}
 }
 
 p.rating,
@@ -183,32 +192,35 @@ p.dist {
 }
 
 
-/*====Footer====*/
-
+// =========================== //
+// Footer
+// =========================== //
 footer {
 	padding-top: 1%;
-}
 
-footer span {
-	color: $color-cardinal;
-}
+	span {
+		color: $color-cardinal;
+	}
 
-footer a {
-	color: $color-cod;
-	text-decoration: none;
-}
+	a {
+		color: $color-cod;
+		text-decoration: none;
+	}
 
-footer p {
-	font-size: 16px;
-	margin: 0;
+	p {
+		font-size: 16px;
+		margin: 0;
+	}
 }
 
 p.credit {
 	font-size: 14px;
 }
 
-/*=====MEDIA QUERIES======*/
 
+// =========================== //
+// Media Queries
+// =========================== //
 @media all and (max-width: 1100px) {
 
 	.places {
