@@ -139,7 +139,7 @@ guac.getPlaces = function() {
 // Function that is used to display information in html
 guac.displayPlaces = function(result) {
 
-	console.log( 'Am I displaying the results yet?' );
+	// console.log( 'Am I displaying the results yet?' );
 
 	// Clear old results.
 	document.querySelector( '.results' ).innerHTML = null;
@@ -159,9 +159,9 @@ guac.displayPlaces = function(result) {
 
 		const name = places[i].venue.name;
 		const id = places[i].venue.id;
+		const address = places[i].venue.location.address;
 		const distance = places[i].venue.location.distance;
 		const stars = places[i].venue.rating;
-		// const venue =
 		// const photo =
 
 		// Create blank div. Add class name.
@@ -173,38 +173,43 @@ guac.displayPlaces = function(result) {
 		const venue = document.createTextNode( name );
 		h3.appendChild( venue );
 
-		// // Get venue address.
+		// Get venue address.
 		const addrPrefix = 'https://foursquare.com/v/' + id;
 		const addr = document.createElement( 'a' );
+		addr.classList.add( 'addr' );
+		addr.setAttribute( 'href', addrPrefix );
+		addr.innerHTML = `<i class="fa fa-home"></i>${address}`;
 
-		// addr.classList.add( 'addr' );
+		let dist = '';
 
-		console.log(addrPrefix);
-
-		// var addr = $('<a class="addr">').attr('href', addrPrefix).html('<i class="fa fa-home"></i> ' + places[i].venue.location.address);
-
-		// // If distance from current location is more than 1000m, convert it to km and attach different concatenation to add to page.
+		// If distance from current location is more than 1000m, convert it to km and attach different concatenation to add to page.
 		if ( distance > 1000 ) {
-			// var dist = $('<p class="dist">').text('You are '+ ( ( distance/1000 ).toFixed( 1 ) ) + 'km away.');
+			dist = document.createElement( 'p' );
+			dist.classList.add( 'dist' );
+			dist.innerHTML = `You are ${(distance/1000).toFixed( 1 )} km away.`;
 		} else {
-			// var dist = $('<p class="dist">').text('You are ' + distance + 'm away.');
+			dist = document.createElement( 'p' );
+			dist.classList.add( 'dist' );
+			dist.innerHTML = `You are ${distance} m away.`;
 		}
 
-		// // Get rating of venue.
+		// Get rating of venue.
 		const p = document.createElement( 'p' );
-		const rating = document.createTextNode( 'This place is rated `${stars}` stars!' );
+		const rating = document.createTextNode( `This place is rated ${stars} stars!` );
 		p.classList.add( 'rating' );
 		p.appendChild( rating );
 
-		// // Venue photo.
+		// Venue photo.
 		// var photoPrefix = places[i].venue.photos.groups[0].items[0];
 		// var photo = $('<img>').attr('src',photoPrefix.prefix + photoPrefix.height + photoPrefix.suffix);
 
-		// // Put all of the variables into the div.
+		// Put all the variables into div.
 		div.appendChild( h3 );
 		div.appendChild( p );
+		div.appendChild( addr );
+		div.appendChild( dist );
 
-		// // Append that div to the results section of the html.
+		// Append that div to results section of HTML.
 		document.querySelector( 'section.results' ).appendChild( div );
 	}
 
