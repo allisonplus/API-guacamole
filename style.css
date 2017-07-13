@@ -102,7 +102,7 @@ a.driving {
 }
 
 .waiting {
-	display: all;
+	/*display: all;*/
 }
 
 .loading {
@@ -167,11 +167,11 @@ p.dist {
 }
 
 p.dist {
-	padding-top:3%;
+	padding-top: 3%;
 }
 
 .fa {
-	color:#155c33;
+	color: #155c33;
 }
 
 
@@ -196,7 +196,7 @@ footer p {
 }
 
 p.credit {
-	font-size:14px;
+	font-size: 14px;
 }
 
 /*=====MEDIA QUERIES======*/
@@ -295,8 +295,8 @@ p.credit {
 	}
 
 	footer {
-		padding-top: 5%;
 		margin: 0 auto;
+		padding-top: 5%;
 		width: 85%;
 	}
 

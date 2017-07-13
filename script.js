@@ -83,7 +83,8 @@ guac.setListeners = function() {
 }
 
 guac.checkQuery = function() {
-	console.log( 'check query' )
+	// console.log( 'check query' )
+
 	// Conditional to check for selection class.
 	if ( walkingButton.classList.contains( 'toggleSVG' ) ) {
 
@@ -98,8 +99,8 @@ guac.checkQuery = function() {
 
 // Function that will go and get information from the API
 guac.getPlaces = function() {
-	console.log( 'get places' )
-	console.log('>>',guac.radius, guac.lat, guac.lon);
+	// console.log( 'get places' )
+	// console.log('>>',guac.radius, guac.lat, guac.lon);
 
 	const url = 'https://api.foursquare.com/v2/venues/explore?';
 
@@ -139,8 +140,6 @@ guac.getPlaces = function() {
 // Function that is used to display information in html
 guac.displayPlaces = function(result) {
 
-	// console.log( 'Am I displaying the results yet?' );
-
 	// Clear old results.
 	document.querySelector( '.results' ).innerHTML = null;
 
@@ -149,9 +148,10 @@ guac.displayPlaces = function(result) {
 
 	// If there aren't any results, display this message to the user.
 	if (places.length === 0) {
-		console.log( 'there are no results' );
-			// var zilch = $('<h4>').text("Uh oh.  It looks like there aren't any open places near you that have guac.");
-			// $('section.results').append(zilch);
+		const zilch = document.createElement( 'h4' );
+		const gothamole = document.createTextNode( 'Uh oh.  It looks like there aren\'t any open places near you that have guac.' );
+		zilch.appendChild( gothamole );
+		document.querySelector( 'section.results' ).appendChild( zilch );
 	}
 
 	// LOOP that will go through array being held in items above.
@@ -162,7 +162,7 @@ guac.displayPlaces = function(result) {
 		const address = places[i].venue.location.address;
 		const distance = places[i].venue.location.distance;
 		const stars = places[i].venue.rating;
-		// const photo =
+		const photo = places[i].venue.photos.groups[0].items[0];
 
 		// Create blank div. Add class name.
 		const div = document.createElement( 'div' );
@@ -200,67 +200,20 @@ guac.displayPlaces = function(result) {
 		p.appendChild( rating );
 
 		// Venue photo.
-		// var photoPrefix = places[i].venue.photos.groups[0].items[0];
-		// var photo = $('<img>').attr('src',photoPrefix.prefix + photoPrefix.height + photoPrefix.suffix);
+		const photoLink = photo.prefix + photo.height + photo.suffix;
+		const img = document.createElement( 'img' );
+		img.setAttribute( 'src', photoLink );
 
 		// Put all the variables into div.
 		div.appendChild( h3 );
 		div.appendChild( p );
 		div.appendChild( addr );
 		div.appendChild( dist );
+		div.appendChild( img );
 
 		// Append that div to results section of HTML.
 		document.querySelector( 'section.results' ).appendChild( div );
 	}
-
-	// ******
-
-	// Clear old results to find new ones.
-	// $(".results").html('');
-
-	// Create variable that holds path to data.
-	// var places = result.response.groups[0].items;
-	// // console.log(places);
-
-	// If there aren't any results, display this message to the user.
-	// if (places.length === 0) {
-		// console.log( 'there are no results' );
-			// var zilch = $('<h4>').text("Uh oh.  It looks like there aren't any open places near you that have guac.");
-			// $('section.results').append(zilch);
-	// }
-
-	// LOOP that will go through array being held in items above.
-	// for (i=0; i < places.length; i++) {
-
-	// 	Create blank div.
-	// 	var div = $('<div>').addClass('places');
-
-	// 	Get venue name.
-	// 	var h3 = $('<h3>').text(places[i].venue.name);
-
-	// 	// Get venue address.
-	// 	var addrPrefix = "https://foursquare.com/v/" + places[i].venue.id;
-	// 	var addr = $('<a class="addr">').attr('href', addrPrefix).html('<i class="fa fa-home"></i> ' + places[i].venue.location.address);
-
-	// 	// If distance from current location is more than 1000m, convert it to km and attach different concatenation to add to page.
-	// 	if (places[i].venue.location.distance > 1000) {
-	// 		var dist = $('<p class="dist">').text('You are '+ ((places[i].venue.location.distance/1000).toFixed(1)) + 'km away.');
-	// 	} else {
-	// 		var dist = $('<p class="dist">').text('You are ' + places[i].venue.location.distance + 'm away.');
-	// 	}
-
-	// 	// Get rating of venue.
-	// 	var rating = $('<p class="rating">').text('This place is rated ' + places[i].venue.rating + ' stars!');
-
-	// 	// Venue photo.
-	// 	var photoPrefix = places[i].venue.photos.groups[0].items[0];
-	// 	var photo = $('<img>').attr('src',photoPrefix.prefix + photoPrefix.height + photoPrefix.suffix);
-
-	// 	// Put all of the variables into the div.
-	// 	div.append(h3, photo, dist, rating, addr);
-
-	// 	// Append that div to the results section of the html.
-	// 	$('section.results').append(div);
 
 	// 	var price = places[i].venue.price;
 	// 	console.log(price);
