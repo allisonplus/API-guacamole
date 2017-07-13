@@ -5,94 +5,106 @@ var guac = {
 guac.clientId = 'M01QAACEECGNTWIG3C3GEC5BEX3SNLI2EZ4SJ0WHVQEY3ZA5';
 guac.clientSecret = 'YKEJGAP4EJ12E4QR1ZZ3K5WR0W0AZSPDZCOEXKYX3TISEMRU';
 
+// Walking + driving variables.
+const walkingButton = document.querySelector( 'button.walking' );
+const drivingButton = document.querySelector( 'button.driving' );
+
 guac.init = function() {
+	console.log("I am ignited!");
 
-	// Walking + driving variables.
-	const walkingLink = document.querySelector( 'button.walking' );
-	const drivingLink = document.querySelector( 'button.driving' );
-
-	// Walking icon click.
-	walkingLink.addEventListener( 'click', function(e) {
-
-		// Checks off form property.
-		walkingLink.classList.add( 'toggleSVG' );
-
-		// Remove class from driving icon if selected.
-		if( drivingLink.classList.contains( 'toggleSVG' ) ) {
-			drivingLink.classList.remove( 'toggleSVG' );
-		}
-	} )
-
-	// Driving icon click.
-	drivingLink.addEventListener( 'click', function(e) {
-
-		// Checks off form property.
-		drivingLink.classList.add( 'toggleSVG' );
-
-		// Remove class from driving icon if selected.
-		if( walkingLink.classList.contains( 'toggleSVG' ) ) {
-			walkingLink.classList.remove( 'toggleSVG' );
-		}
-	} )
-
-	//What happens when you submit the form?
-	// $('.search').on('submit', function(e) {
-	// 	// Begin loading animation
-	// 	$('.waiting').removeClass('loading');
-	// 	$('img.avocado').addClass('avocadoFade');
-	// 	// Prevent the default
-	// 	e.preventDefault();
-
-	// 	// Geolocator.
-	// 	navigator.geolocation.getCurrentPosition(function(position) {
-	// 		guac.lat = position.coords.latitude;
-	// 		guac.lon = position.coords.longitude;
-
-	// 		//run AJAX call function
-	// 		if($("a.walking").hasClass("toggleSVG")) {
-	// 			// guac.getPlaces();
-	// 		} else if ($("a.driving").hasClass("toggleSVG")) {
-	// 			// guac.getCarPlaces();
-	// 			}
-	// 	}); //end geolocation
-	// }); //end submit
+	guac.getCoordinates();
+	guac.setListeners();
 } // end .init
 
+guac.setListeners = function() {
+	console.log("Set listeners")
 
+	// Walking icon click.
+	walkingButton.addEventListener( 'click', function(e) {
 
-// guac.axiosInit = function(url, searchArguments) {
+		// Checks off form property.
+		walkingButton.classList.add( 'toggleSVG' );
 
-// 	// Axios request using search argument parameters to get data.
-// 	axios.get( url, {
-// 		params: searchArguments
-// 	})
-// 	.then(function (response) {
-// 		console.log(response);
-// 	})
-// 	.catch(function (error) {
-// 		console.error(error);
-// 	});
-// }
+		// Remove class from driving icon if selected.
+		if( drivingButton.classList.contains( 'toggleSVG' ) ) {
+			drivingButton.classList.remove( 'toggleSVG' );
+		}
+	} );
 
-//=========
-//AJAX CALL
-//=========
+	// Driving icon click.
+	drivingButton.addEventListener( 'click', function(e) {
+
+		// Checks off form property.
+		drivingButton.classList.add( 'toggleSVG' );
+
+		// Remove class from driving icon if selected.
+		if( walkingButton.classList.contains( 'toggleSVG' ) ) {
+			walkingButton.classList.remove( 'toggleSVG' );
+		}
+	} );
+
+	// What happens when you submit the form?
+	document.querySelector( '.search' ).addEventListener( 'submit', function(e) {
+
+		// Prevent the default.
+		e.preventDefault();
+
+		console.log('this is when submit is pressed');
+
+		// Begin loading animation.
+		document.querySelector( '.waiting' ).classList.remove( 'loading' );
+		document.querySelector( 'img.avocado' ).classList.add( 'avocadoFade' );
+
+		// Check to see if walking or driving selected.
+		guac.checkQuery();
+
+		guac.getPlaces();
+	} );
+}
+
+guac.getCoordinates = function() {
+	console.log("get coords")
+
+	// Geolocator.
+	navigator.geolocation.getCurrentPosition(function(position) {
+		guac.lat = position.coords.latitude;
+		guac.lon = position.coords.longitude;
+	}); //end Geolocator.
+};
+
+guac.checkQuery = function() {
+	console.log("check query")
+	// Conditional to check for selection class.
+	if ( walkingButton.classList.contains( 'toggleSVG' ) ) {
+
+		console.log( "walking" )
+		guac.radius = 2500;
+	} else if ( drivingButton.classList.contains( 'toggleSVG' ) ) {
+
+		console.log( "driving" )
+		guac.radius = 40000;
+	}
+}
 
 // Function that will go and get information from the API
-guac.getPlaces = function(place) {
+guac.getPlaces = function() {
+	console.log("get places")
+	// console.log(">>",guac.radius, guac.lat, guac.lon);
 
-	const url = `https://api.foursquare.com/v2/venues/explore?`;
+	const url = 'https://api.foursquare.com/v2/venues/explore?';
 
 	// 43.794393, -79.320259
+
+	// https://api.foursquare.com/v2/venues/explore?&intent=browse&client_id=M01QAACEECGNTWIG3C3GEC5BEX3SNLI2EZ4SJ0WHVQEY3ZA5&client_secret=YKEJGAP4EJ12E4QR1ZZ3K5WR0W0AZSPDZCOEXKYX3TISEMRU&ll=undefined,undefined&limit=9&query=guacamole&openNow=true&sortByDistance=1&venuePhotos=1&v=20151010
 
 	const searchArguments = {
 		// ll=${guac.lat},${guac.lon}&client_id=${guac.clientID}&client_secret=${guac.clientSecret}&v=20151010
 		intent : 'browse',
-		format :'jsonp',
+		// format :'jsonp',
 		client_id : guac.clientId,
 		client_secret : guac.clientSecret,
 		ll : `${guac.lat},${guac.lon}`,
-		radius : 2500,
+		radius : guac.radius,
 		limit : 9,
 		query : 'guacamole',
 		openNow : true,
@@ -101,7 +113,17 @@ guac.getPlaces = function(place) {
 		v : 20151010
 	}
 
-	// guac.axiosInit(url, searchArguments);
+	axios.get( url, {
+		params: searchArguments
+	})
+	.then(function (response) {
+		console.log(response);
+	})
+	.catch(function (error) {
+		console.error(error);
+	});
+
+	// guac.axiosInit;
 
 	// Ajax response to gather data from API
 	// $.ajax( {
@@ -218,8 +240,8 @@ guac.getPlaces = function(place) {
 // 	}
 // } //end displayResults
 
-
 // Document ready statement.
-( function() {
+document.addEventListener("DOMContentLoaded", function(){
+	console.log("Call init")
 	guac.init();
-} () ) ;
+} ) ;
