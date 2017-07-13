@@ -44,16 +44,17 @@ img {
 	margin: 0 auto;
 }
 
-p.dist, p.rating {
+p.dist,
+p.rating {
 	font-size: 22px;
 }
 
-/*====Hides Actual Radio Buttons====*/
-input[type=radio] {
-	display: none;
-}
 
 /*Walking & Driving Icons*/
+button {
+	background-color: transparent;
+	border: none;
+}
 
 .svgColour {
 	fill: #2F3633;
