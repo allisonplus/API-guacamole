@@ -24,17 +24,16 @@ guac.getCoordinates = function() {
 		guac.lat = position.coords.latitude;
 		guac.lon = position.coords.longitude;
 
-
 		console.log(guac.lat);
 		console.log(guac.lon);
 
-		//okay got our data let's set our listeners
+		// Okay got our data let's set our listeners.
 		guac.setListeners();
 	}); //end Geolocator.
 
 	console.log(guac.lat);
 	console.log(guac.lon);
-};
+}; // end getCoordinates.
 
 guac.setListeners = function() {
 	console.log( 'Set listeners' );
@@ -80,7 +79,7 @@ guac.setListeners = function() {
 
 		guac.getPlaces();
 	} );
-}
+} // end .setListeners
 
 guac.checkQuery = function() {
 	// console.log( 'check query' )
@@ -95,7 +94,7 @@ guac.checkQuery = function() {
 		console.log( 'driving' )
 		guac.radius = 40000;
 	}
-}
+} // end .checkQuery
 
 // Function that will go and get information from the API
 guac.getPlaces = function() {
@@ -103,8 +102,6 @@ guac.getPlaces = function() {
 	// console.log('>>',guac.radius, guac.lat, guac.lon);
 
 	const url = 'https://api.foursquare.com/v2/venues/explore?';
-
-	// https://api.foursquare.com/v2/venues/explore?&intent=browse&client_id=M01QAACEECGNTWIG3C3GEC5BEX3SNLI2EZ4SJ0WHVQEY3ZA5&client_secret=YKEJGAP4EJ12E4QR1ZZ3K5WR0W0AZSPDZCOEXKYX3TISEMRU&ll=undefined,undefined&limit=9&query=guacamole&openNow=true&sortByDistance=1&venuePhotos=1&v=20151010
 
 	const searchArguments = {
 		intent : 'browse',
@@ -134,7 +131,7 @@ guac.getPlaces = function() {
 	.catch(function (error) {
 		console.error(error);
 	});
-} // end .getPlaces
+} // end .getPlaces.
 
 
 // Function that is used to display information in html
@@ -213,12 +210,8 @@ guac.displayPlaces = function(result) {
 
 		// Append that div to results section of HTML.
 		document.querySelector( 'section.results' ).appendChild( div );
-	}
-
-	// 	var price = places[i].venue.price;
-	// 	console.log(price);
-	// }
-} //end displayResults
+	} // end loop.
+} // end displayResults.
 
 // Document ready statement.
 document.addEventListener( 'DOMContentLoaded', function() {
