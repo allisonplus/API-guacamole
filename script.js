@@ -158,11 +158,13 @@ guac.displayPlaces = function(result) {
 		}
 
 		const placeCard =
-		`<div class="places">
-			<h3>${name}</h3>
-			<a class="addr" href="${addrPrefix}${id}"><i class="fa fa-home"></i>${address}</a>
-			<p class="dist">${dist}</p>
-			<p class="rating">This place is rated ${stars} stars!</p>
+		`<div class="place-result">
+			<div class="content">
+				<h3>${name}</h3>
+				<a class="addr" href="${addrPrefix}${id}"><i class="fa fa-home"></i>${address}</a>
+				<p class="dist">${dist}</p>
+				<p class="rating">This place is rated ${stars} stars!</p>
+			</div>
 			<img src="${photoLink}" alt="${name}">
 		</div>`;
 

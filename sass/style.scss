@@ -48,12 +48,8 @@ h3 {
 	margin: 10px 0;
 	padding-bottom: 2%;
 
-	@media (min-width: $tablet-portrait) {
-		min-height: 68px;
-	}
-
 	@media (min-width: $desktop) {
-		min-height: initial;
+		font-size: 36px;
 	}
 }
 
@@ -123,18 +119,18 @@ svg#driving {
 	padding: 20px;
 }
 
-button .walking {
-	margin-right: 1%;
-}
-
-button.walking,
-button.driving {
+button {
 	display: inline-block;
 	margin-top: 4%;
-}
 
-.waiting {
-	display: all;
+	&:first-of-type {
+		margin-right: 1%;
+	}
+
+	 &:focus {
+		outline: none;
+		outline: darken($color-avocado, 10%) auto 5px;
+	}
 }
 
 .loading {
@@ -148,7 +144,7 @@ button.driving {
 	-moz-animation:    pitFade 1.2s infinite;
 	-o-animation:      pitFade 1.2s infinite;
 	animation:         pitFade 1.2s infinite;
-	animation-timing-function: ease-in;
+	animation-timing-function: ease-in-out;
 }
 
 @-webkit-keyframes pitFade {
@@ -179,14 +175,24 @@ button.driving {
 	}
 
 	@media (min-width: $tablet-landscape) {
-		width: 3% 5%;
+		margin: 3% 5% 0;
+	}
+
+	@media (min-width: $desktop) {
+		margin: 0 5%;
 	}
 }
 
-.places {
+
+// =========================== //
+// Individual Result card
+// =========================== //
+.place-result {
 	background: $color-white;
 	border-radius: 10px;
 	border: 3px solid $color-edward;
+	display: flex;
+	flex-direction: column;
 	margin: 10px 0;
 	padding: 10px;
 	width: 100%;
@@ -199,42 +205,53 @@ button.driving {
 		width: calc(100% / 3.09);
 	}
 
+	// First result.
 	&:first-of-type {
 		margin: 0;
 
 		@media (min-width: $tablet-portrait) {
 			margin: 10px 0;
 		}
-	} // &:first-of-type
+	}
 
+	// Featured image.
 	img {
 		width: 95%;
-		margin-top: 2%;
+		margin: 2% auto;
 	}
-}
 
-p.dist,
-p.rating {
-	font-size: 22px;
-	margin: 8px;
-}
+	// All text content.
+	.content {
+		flex: 1;
+	}
 
-.rating {
-	margin-top: 8px;
-}
+	// Distance + rating.
+	.dist,
+	.rating {
+		font-size: 22px;
+		margin: 8px;
+	}
 
-.fa-home {
-	color: $color-parsley;
-	margin-right: 8px;
-}
+	// Rating.
+	.rating {
+		margin-top: 8px;
+	}
 
-.addr {
-	display: block;
-	color: $color-black;
-	font-size: 17px;
-	line-height: 1.7;
-	text-align: center;
-	text-decoration: none;
+	// Icon for address.
+	.fa-home {
+		color: $color-parsley;
+		margin-right: 8px;
+	}
+
+	// Address.
+	.addr {
+		display: block;
+		color: $color-black;
+		font-size: 17px;
+		line-height: 1.7;
+		text-align: center;
+		text-decoration: none;
+	}
 }
 
 
