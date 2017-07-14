@@ -1,5 +1,5 @@
-article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:700;}dfn{font-style:italic;}mark{background:#ff0;color:#000;}code,kbd,pre,samp{font-family:monospace, serif;font-size:1em;}pre{white-space:pre-wrap;word-wrap:break-word;}q{quotes:\201C \201D \2018 \2019;}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-.5em;}sub{bottom:-.25em;}img{border:0;}svg:not(:root){overflow:hidden;}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em;}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;}button,input{line-height:normal;}button,html input[type=button],/* 1 */
-input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}button[disabled],input[disabled]{cursor:default;}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0;}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}body,figure{margin:0;}legend,button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {display:block;}audio, canvas, video {display:inline-block;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}a:focus{outline:thin dotted;}a:active, a:hover{outline:0;}h1{font-size:2em;}abbr[title]{border-bottom:1px dotted;}b, strong{font-weight:700;}dfn{font-style:italic;}mark{background:#ff0;color:#000;}code, kbd, pre, samp{font-family:monospace, serif;font-size:1em;}pre{white-space:pre-wrap;word-wrap:break-word;}q{quotes:\201C \201D \2018 \2019;}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-.5em;}sub{bottom:-.25em;}img{border:0;}svg:not(:root){overflow:hidden;}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em;}button, input, select, textarea{font-family:inherit;font-size:100%;margin:0;}button,input{line-height:normal;}button, html input[type=button],/* 1 */
+input[type=reset], input[type=submit]{-webkit-appearance:button;cursor:pointer;}button[disabled],input[disabled]{cursor:default;}input[type=checkbox], input[type=radio]{box-sizing:border-box;padding:0;}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration{-webkit-appearance:none;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}body, figure{margin:0;}legend, button::-moz-focus-inner, input::-moz-focus-inner{border:0;padding:0;}
 
 .clearfix:after {visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
 
@@ -8,14 +8,14 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
 // =========================== //
 // Colour Variables
 // =========================== //
-$color-cod: #2F3633;
-$color-alto: #E0E0E0;
-$color-avocado: #85AF58;
+$color-cod: #2f3633;
+$color-alto: #e0e0e0;
+$color-avocado: #85af58;
 $color-parsley: #155c33;
-$color-white: #ffffff;
+$color-white: #fff;
 $color-cardinal: #ce2029;
-$color-edward: #ACBCB5;
-$color-black: #000000;
+$color-edward: #acbcb5;
+$color-black: #000;
 
 
 // =========================== //
@@ -49,8 +49,13 @@ h3 {
 	padding-bottom: 2%;
 
 	@media (min-width: $desktop) {
-		font-size: 36px;
+		font-size:36px;
 	}
+}
+
+h4 {
+	// text-align: center;
+	// width: 100%;
 }
 
 p {
@@ -101,6 +106,16 @@ input[type=submit] {
 	margin-top: 4%;
 	padding: 15px;
 	text-transform: uppercase;
+	transition: background-color .15s ease-in-out;
+
+	&:hover {
+		background-color: darken($color-avocado, 15%);
+	}
+
+	 &:focus {
+		outline: none;
+		outline: darken($color-avocado, 10%) auto 5px;
+	}
 }
 
 

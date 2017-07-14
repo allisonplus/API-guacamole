@@ -133,8 +133,8 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   box-sizing: border-box; }
 
 body {
-  background: #E0E0E0;
-  color: #2F3633;
+  background: #e0e0e0;
+  color: #2f3633;
   font-family: 'Karla', sans-serif;
   text-align: center; }
 
@@ -168,28 +168,34 @@ button {
   border: none; }
 
 .svgColour {
-  fill: #2F3633; }
+  fill: #2f3633; }
 
 .toggleSVG {
-  fill: #85AF58; }
+  fill: #85af58; }
 
 input[type=submit] {
-  background: #85AF58;
+  background: #85af58;
   border-radius: 20px;
   border: none;
-  color: #ffffff;
+  color: #fff;
   font-size: 15px;
   letter-spacing: 2px;
   margin-top: 4%;
   padding: 15px;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  transition: background-color .15s ease-in-out; }
+  input[type=submit]:hover {
+    background-color: #5e7e3c; }
+  input[type=submit]:focus {
+    outline: none;
+    outline: #6b8f45 auto 5px; }
 
 img.avocado {
   margin-top: 3%; }
 
 svg#walking,
 svg#driving {
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 10px;
   border: 2px solid #155c33;
   padding: 20px; }
@@ -254,9 +260,9 @@ button {
       margin: 0 5%; } }
 
 .place-result {
-  background: #ffffff;
+  background: #fff;
   border-radius: 10px;
-  border: 3px solid #ACBCB5;
+  border: 3px solid #acbcb5;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -288,7 +294,7 @@ button {
     margin-right: 8px; }
   .place-result .addr {
     display: block;
-    color: #000000;
+    color: #000;
     font-size: 17px;
     line-height: 1.7;
     text-align: center;
@@ -306,5 +312,5 @@ footer {
   footer span {
     color: #ce2029; }
   footer a {
-    color: #2F3633;
+    color: #2f3633;
     text-decoration: none; }

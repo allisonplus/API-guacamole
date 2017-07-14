@@ -133,7 +133,7 @@ guac.displayPlaces = function(result) {
 
 	// If there aren't any results, display this message to the user.
 	if (places.length === 0) {
-		const gothamole = '<h4>Uh oh.  It looks like there aren\'t any open places near you that have guac.</h4>';
+		const gothamole = '<div class="wrapper"><h4>Uh oh.  It looks like there aren\'t any open places near you that have guac.</h4></div>';
 		document.querySelector( 'section.results' ).insertAdjacentHTML( 'afterbegin', gothamole );
 	}
 
