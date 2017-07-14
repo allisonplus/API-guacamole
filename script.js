@@ -90,9 +90,9 @@ guac.checkQuery = function() {
 	}
 } // end .checkQuery
 
-// Function that will go and get information from the API
+// Function that will go and get information from the API.
 guac.getPlaces = function() {
-	const url = 'https://api.foursquare.com/v2/venues/explore?';
+	const url = 'https://api.foursquare.com/v2/venues/explore';
 
 	const searchArguments = {
 		intent : 'browse',
@@ -141,15 +141,14 @@ guac.displayPlaces = function(result) {
 		document.querySelector( 'section.results' ).appendChild( zilch );
 	}
 
-	// LOOP that will go through array being held in items above.
-	for ( i=0; i < places.length; i++ ) {
-
-		const name = places[i].venue.name;
-		const id = places[i].venue.id;
-		const address = places[i].venue.location.address;
-		const distance = places[i].venue.location.distance;
-		const stars = places[i].venue.rating;
-		const photo = places[i].venue.photos.groups[0].items[0];
+	// Loop that will go through array being held in items above.
+	places.forEach( function(place) {
+		const name = place.venue.name;
+		const id = place.venue.id;
+		const address = place.venue.location.address;
+		const distance = place.venue.location.distance;
+		const stars = place.venue.rating;
+		const photo = place.venue.photos.groups[0].items[0];
 
 		// Create blank div. Add class name.
 		const div = document.createElement( 'div' );
@@ -200,7 +199,7 @@ guac.displayPlaces = function(result) {
 
 		// Append that div to results section of HTML.
 		document.querySelector( 'section.results' ).appendChild( div );
-	} // end loop.
+	} ); // end forEach.
 } // end displayResults.
 
 // Document ready statement.
