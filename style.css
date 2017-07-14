@@ -133,7 +133,7 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   box-sizing: border-box; }
 
 body {
-  background: #e0e0e0;
+  background-color: rgba(224, 224, 224, 0.7);
   color: #2f3633;
   font-family: 'Karla', sans-serif;
   text-align: center; }
@@ -144,8 +144,7 @@ h1 {
 
 h3 {
   font-size: 26px;
-  margin: 10px 0;
-  padding-bottom: 2%; }
+  margin: 10px 0; }
   @media (min-width: 1366px) {
     h3 {
       font-size: 36px; } }
