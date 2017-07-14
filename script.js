@@ -43,6 +43,9 @@ guac.setListeners = function() {
 	// Walking icon click.
 	guac.walkingButton.addEventListener( 'click', function(e) {
 
+		// Prevent the default.
+		e.preventDefaultarticle
+
 		// Adds class.
 		this.classList.add( 'toggleSVG' );
 
@@ -55,6 +58,9 @@ guac.setListeners = function() {
 	// Driving icon click.
 	guac.drivingButton.addEventListener( 'click', function(e) {
 
+		// Prevent the default.
+		e.preventDefault();
+
 		// Adds class.
 		this.classList.add( 'toggleSVG' );
 
@@ -65,7 +71,7 @@ guac.setListeners = function() {
 	} );
 
 	// What happens when you submit the form?
-	document.querySelector( '.search' ).addEventListener( 'submit', function(e) {
+	document.querySelector( '.search input[type="submit"]' ).addEventListener( 'click', function(e) {
 
 		// Prevent the default.
 		e.preventDefault();
@@ -137,6 +143,8 @@ guac.displayPlaces = function(result) {
 		document.querySelector( 'section.results' ).insertAdjacentHTML( 'afterbegin', gothamole );
 	}
 
+	console.log( places );
+
 	// Loop that will go through array being held in items above.
 	places.forEach( function(place) {
 		const name = place.venue.name;
@@ -147,8 +155,16 @@ guac.displayPlaces = function(result) {
 		const photo = place.venue.photos.groups[0].items[0];
 		const addrPrefix = 'https://foursquare.com/v/';
 		const photoLink = photo.prefix + photo.height + photo.suffix;
+		const url = place.venue.url;
 
 		let dist = '';
+
+		// Only add link markup within title if it exists.
+		if ( url != undefined ) {
+			bizLink = `<a href="${url}">${name}</a>`;
+		} else {
+			bizLink = `${name}`;
+		}
 
 		// If distance from current location is more than 1000m, convert it to KM and attach different concatenation to add to page.
 		if ( distance > 1000 ) {
@@ -158,8 +174,8 @@ guac.displayPlaces = function(result) {
 		}
 
 		const placeCard =
-		`<div class="place-result">
-			<h3>${name}</h3>
+		`<article class="place-result">
+			<h3>${bizLink}</h3>
 			<img src="${photoLink}" alt="${name}">
 
 			<div class="content">
@@ -167,7 +183,7 @@ guac.displayPlaces = function(result) {
 				<p class="dist">${dist}</p>
 				<p class="rating">This place is rated ${stars} stars!</p>
 			</div>
-		</div>`;
+		</article>`;
 
 		// Append that div to results section of HTML.
 		document.querySelector( 'section.results' ).insertAdjacentHTML( 'afterbegin', placeCard );

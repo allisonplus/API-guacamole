@@ -49,13 +49,18 @@ h3 {
 	padding-bottom: 2%;
 
 	@media (min-width: $desktop) {
-		font-size:36px;
+		font-size: 36px;
 	}
-}
 
-h4 {
-	// text-align: center;
-	// width: 100%;
+	a {
+		color: $color-cod;
+		text-decoration: none;
+		transition: color .35s ease-in-out;
+
+		&:hover {
+			color: darken($color-cod, 15%);
+		}
+	}
 }
 
 p {
@@ -101,9 +106,10 @@ input[type=submit] {
 	border-radius: 20px;
 	border: none;
 	color: $color-white;
+	display: block;
 	font-size: 15px;
 	letter-spacing: 2px;
-	margin-top: 4%;
+	margin: 4% auto;
 	padding: 15px;
 	text-transform: uppercase;
 	transition: background-color .15s ease-in-out;
