@@ -74,10 +74,6 @@ img {
 .wrapper {
 	margin: 15px auto;
 	max-width: 690px;
-
-	@media (min-width: $tablet-landscape) {
-		margin: 0 auto;
-	}
 }
 
 

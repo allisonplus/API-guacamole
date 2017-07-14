@@ -165,9 +165,6 @@ img {
 .wrapper {
   margin: 15px auto;
   max-width: 690px; }
-  @media (min-width: 1024px) {
-    .wrapper {
-      margin: 0 auto; } }
 
 button {
   background-color: transparent;
