@@ -38,14 +38,13 @@ guac.getCoordinates = function() {
 		});
 }; // end getCoordinates.
 
-
 guac.setListeners = function() {
 
 	// Walking icon click.
 	walkingButton.addEventListener( 'click', function(e) {
 
-		// Checks off form property.
-		walkingButton.classList.add( 'toggleSVG' );
+		// Adds class.
+		this.classList.add( 'toggleSVG' );
 
 		// Remove class from driving icon if selected.
 		if( drivingButton.classList.contains( 'toggleSVG' ) ) {
@@ -56,8 +55,8 @@ guac.setListeners = function() {
 	// Driving icon click.
 	drivingButton.addEventListener( 'click', function(e) {
 
-		// Checks off form property.
-		drivingButton.classList.add( 'toggleSVG' );
+		// Adds class.
+		this.classList.add( 'toggleSVG' );
 
 		// Remove class from driving icon if selected.
 		if( walkingButton.classList.contains( 'toggleSVG' ) ) {
@@ -123,7 +122,6 @@ guac.getPlaces = function() {
 	});
 } // end .getPlaces.
 
-
 // Function that is used to display information in html
 guac.displayPlaces = function(result) {
 
@@ -135,10 +133,8 @@ guac.displayPlaces = function(result) {
 
 	// If there aren't any results, display this message to the user.
 	if (places.length === 0) {
-		const zilch = document.createElement( 'h4' );
-		const gothamole = document.createTextNode( 'Uh oh.  It looks like there aren\'t any open places near you that have guac.' );
-		zilch.appendChild( gothamole );
-		document.querySelector( 'section.results' ).appendChild( zilch );
+		const gothamole = '<h4>Uh oh.  It looks like there aren\'t any open places near you that have guac.</h4>';
+		document.querySelector( 'section.results' ).insertAdjacentHTML( 'afterbegin', gothamole );
 	}
 
 	// Loop that will go through array being held in items above.
@@ -149,56 +145,29 @@ guac.displayPlaces = function(result) {
 		const distance = place.venue.location.distance;
 		const stars = place.venue.rating;
 		const photo = place.venue.photos.groups[0].items[0];
-
-		// Create blank div. Add class name.
-		const div = document.createElement( 'div' );
-		div.classList.add( 'places' );
-
-		// Get venue name.
-		const h3 = document.createElement( 'h3' );
-		const venue = document.createTextNode( name );
-		h3.appendChild( venue );
-
-		// Get venue address.
-		const addrPrefix = 'https://foursquare.com/v/' + id;
-		const addr = document.createElement( 'a' );
-		addr.classList.add( 'addr' );
-		addr.setAttribute( 'href', addrPrefix );
-		addr.innerHTML = `<i class="fa fa-home"></i>${address}`;
+		const addrPrefix = 'https://foursquare.com/v/';
+		const photoLink = photo.prefix + photo.height + photo.suffix;
 
 		let dist = '';
 
 		// If distance from current location is more than 1000m, convert it to km and attach different concatenation to add to page.
 		if ( distance > 1000 ) {
-			dist = document.createElement( 'p' );
-			dist.classList.add( 'dist' );
-			dist.innerHTML = `You are ${(distance/1000).toFixed( 1 )} km away.`;
+			dist = `You are ${(distance/1000).toFixed( 1 )} km away.`;
 		} else {
-			dist = document.createElement( 'p' );
-			dist.classList.add( 'dist' );
-			dist.innerHTML = `You are ${distance} m away.`;
+			dist = `You are ${distance} m away.`;
 		}
 
-		// Get rating of venue.
-		const p = document.createElement( 'p' );
-		const rating = document.createTextNode( `This place is rated ${stars} stars!` );
-		p.classList.add( 'rating' );
-		p.appendChild( rating );
-
-		// Venue photo.
-		const photoLink = photo.prefix + photo.height + photo.suffix;
-		const img = document.createElement( 'img' );
-		img.setAttribute( 'src', photoLink );
-
-		// Put all the variables into div.
-		div.appendChild( h3 );
-		div.appendChild( p );
-		div.appendChild( addr );
-		div.appendChild( dist );
-		div.appendChild( img );
+		const placeCard =
+		`<div class="places">
+			<h3>${name}</h3>
+			<a class="addr" href="${addrPrefix}${id}"><i class="fa fa-home"></i>${address}</a>
+			<p class="dist">${dist}</p>
+			<p class="rating">This place is rated ${stars} stars!</p>
+			<img src="${photoLink}" alt="${name}">
+		</div>`;
 
 		// Append that div to results section of HTML.
-		document.querySelector( 'section.results' ).appendChild( div );
+		document.querySelector( 'section.results' ).insertAdjacentHTML( 'afterbegin', placeCard );
 	} ); // end forEach.
 } // end displayResults.
 
