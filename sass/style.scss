@@ -15,6 +15,17 @@ $color-parsley: #155c33;
 $color-white: #ffffff;
 $color-cardinal: #ce2029;
 $color-edward: #ACBCB5;
+$color-black: #000000;
+
+
+// =========================== //
+// Media Query Variables
+// =========================== //
+$desktop: 1366px;
+$tablet-landscape: 1024px;
+$tablet-portrait: 768px;
+$phone-landscape: 640px;
+$phone-portrait: 360px;
 
 
 // =========================== //
@@ -29,17 +40,25 @@ body {
 
 h1 {
 	font-size: 60px;
+	margin: 0;
 }
 
 h3 {
 	font-size: 26px;
-	margin: 1%;
+	margin: 10px 0;
 	padding-bottom: 2%;
+
+	@media (min-width: $tablet-portrait) {
+		min-height: 68px;
+	}
+
+	@media (min-width: $desktop) {
+		min-height: initial;
+	}
 }
 
 p {
-	font-size: 24px;
-	margin: 10px;
+	font-size: 22px;
 }
 
 img {
@@ -47,13 +66,12 @@ img {
 }
 
 .wrapper {
+	margin: 15px auto;
 	max-width: 690px;
-	margin: 0 auto;
-}
 
-p.dist,
-p.rating {
-	font-size: 22px;
+	@media (min-width: $tablet-landscape) {
+		margin: 0 auto;
+	}
 }
 
 
@@ -152,42 +170,71 @@ button.driving {
 // Results
 // =========================== //
 .results {
-	margin: 3% 5%;
+	margin: 3%;
+	display: flex;
+	flex-wrap: wrap;
+
+	@media (min-width: $tablet-portrait) {
+		justify-content: space-between;
+	}
+
+	@media (min-width: $tablet-landscape) {
+		width: 3% 5%;
+	}
 }
 
 .places {
 	background: $color-white;
 	border-radius: 10px;
 	border: 3px solid $color-edward;
-	float: left;
-	margin: 1%;
-	padding: 1%;
-	width: 31%;
+	margin: 10px 0;
+	padding: 10px;
+	width: 100%;
+
+	@media (min-width: $tablet-portrait) {
+		width: calc(100% / 2.05);
+	}
+
+	@media (min-width: $tablet-landscape) {
+		width: calc(100% / 3.09);
+	}
+
+	&:first-of-type {
+		margin: 0;
+
+		@media (min-width: $tablet-portrait) {
+			margin: 10px 0;
+		}
+	} // &:first-of-type
 
 	img {
 		width: 95%;
+		margin-top: 2%;
 	}
 }
 
-p.rating,
-p.dist {
-	margin: 0;
+p.dist,
+p.rating {
+	font-size: 22px;
+	margin: 8px;
+}
+
+.rating {
+	margin-top: 8px;
+}
+
+.fa-home {
+	color: $color-parsley;
+	margin-right: 8px;
 }
 
 .addr {
 	display: block;
-	color: #000000;
+	color: $color-black;
+	font-size: 17px;
 	line-height: 1.7;
 	text-align: center;
 	text-decoration: none;
-}
-
-p.dist {
-	padding-top: 3%;
-}
-
-.fa {
-	color: $color-parsley;
 }
 
 
@@ -197,6 +244,16 @@ p.dist {
 footer {
 	padding-top: 1%;
 
+	@media (min-width: $tablet-landscape) {
+		font-size: 18px;
+	}
+
+	.credit,
+	.creator {
+		font-size: 14px;
+		margin: 0;
+	}
+
 	span {
 		color: $color-cardinal;
 	}
@@ -204,160 +261,5 @@ footer {
 	a {
 		color: $color-cod;
 		text-decoration: none;
-	}
-
-	p {
-		font-size: 16px;
-		margin: 0;
-	}
-}
-
-p.credit {
-	font-size: 14px;
-}
-
-
-// =========================== //
-// Media Queries
-// =========================== //
-@media all and (max-width: 1100px) {
-
-	.places {
-		margin: 2%;
-		width: 45%;
-	}
-
-	img {
-		margin-top: 2%;
-	}
-
-}
-
-@media all and (max-width: 900px) {
-
-	.wrapper {
-		margin:2%;
-	}
-
-	.places {
-		margin: 2%;
-		width: 46%;
-	}
-
-	h3 {
-		margin: 1%;
-	}
-
-	a.walking,
-	a.driving {
-		margin-top: 3%;
-	}
-
-	footer p {
-		margin: 0 auto;
-	}
-
-}
-
-@media all and (max-width: 710px) {
-
-	.places {
-		margin-top: 2%;
-		width: 46%;
-	}
-
-	h3 {
-		font-size: 20px;
-		margin: 0;
-	}
-
-	img {
-		margin-bottom:2%;
-	}
-
-	section.results p {
-		margin: 0;
-	}
-}
-
-
-
-@media all and (max-width: 590px) {
-
-	.places {
-		margin: 3%;
-		padding: 3%;
-		width: 95%;
-	}
-
-	.places img {
-		width: 95%;
-	}
-
-	h1 {
-		font-size: 35px;
-		margin-bottom: 2%;
-	}
-
-	h3 {
-		font-size: 28px;
-		margin-bottom: 2%;
-		padding: 0;
-	}
-
-	p {
-		font-size: 18px;
-	}
-
-	p.rating {
-		padding-top: 0;
-	}
-
-	footer {
-		margin: 0 auto;
-		padding-top: 5%;
-		width: 85%;
-	}
-
-	footer span {
-		font-size: 16px;
-	}
-
-}
-
-@media all and (max-width: 375px) {
-	footer {
-		font-size: 12px;
-		width: 85%;
-	}
-
-	footer span {
-		font-size: 14px;
-	}
-
-	p.credit {
-		font-size: 12px;
-	}
-}
-
-
-@media all and (max-width: 320px) {
-
-	.wrapper {
-		margin: 2%;
-	}
-
-	footer {
-		font-size: 10px;
-		margin: 0 auto;
-		width: 80%;
-	}
-
-	p {
-		font-size: 18px;
-	}
-
-	p.credit {
-		font-size: 10px;
 	}
 }
