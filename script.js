@@ -10,33 +10,36 @@ const walkingButton = document.querySelector( 'button.walking' );
 const drivingButton = document.querySelector( 'button.driving' );
 
 guac.init = function() {
-	console.log( 'I am ignited like a Phoenix reborn!' );
-
-	guac.getCoordinates();
-	// guac.setListeners();
+	guac.setListeners();
 } // end .init
 
 guac.getCoordinates = function() {
-	console.log('get coords');
 
 	// Geolocator.
-	navigator.geolocation.getCurrentPosition(function(position) {
-		guac.lat = position.coords.latitude;
-		guac.lon = position.coords.longitude;
+	var getPosition = function ( options ) {
+		return new Promise(function ( resolve, reject ) {
+			navigator.geolocation.getCurrentPosition( resolve, reject, options );
+		});
+	}
 
-		console.log(guac.lat);
-		console.log(guac.lon);
+	getPosition()
+		.then( ( position ) => {
+			guac.lat = position.coords.latitude;
+			guac.lon = position.coords.longitude;
 
-		// Okay got our data let's set our listeners.
-		guac.setListeners();
-	}); //end Geolocator.
+			// Check to see if walking or driving selected.
+			guac.checkQuery();
 
-	console.log(guac.lat);
-	console.log(guac.lon);
+			// Get results.
+			guac.getPlaces();
+		})
+		.catch( ( err ) => {
+			console.error( err.message );
+		});
 }; // end getCoordinates.
 
+
 guac.setListeners = function() {
-	console.log( 'Set listeners' );
 
 	// Walking icon click.
 	walkingButton.addEventListener( 'click', function(e) {
@@ -68,39 +71,27 @@ guac.setListeners = function() {
 		// Prevent the default.
 		e.preventDefault();
 
-		console.log('this is when submit is pressed');
-
 		// Begin loading animation.
 		document.querySelector( '.waiting' ).classList.remove( 'loading' );
 		document.querySelector( 'img.avocado' ).classList.add( 'avocadoFade' );
 
-		// Check to see if walking or driving selected.
-		guac.checkQuery();
-
-		guac.getPlaces();
+		// Get coordinates.
+		guac.getCoordinates();
 	} );
 } // end .setListeners
 
 guac.checkQuery = function() {
-	// console.log( 'check query' )
 
 	// Conditional to check for selection class.
 	if ( walkingButton.classList.contains( 'toggleSVG' ) ) {
-
-		console.log( 'walking' )
 		guac.radius = 2500;
 	} else if ( drivingButton.classList.contains( 'toggleSVG' ) ) {
-
-		console.log( 'driving' )
 		guac.radius = 40000;
 	}
 } // end .checkQuery
 
 // Function that will go and get information from the API
 guac.getPlaces = function() {
-	// console.log( 'get places' )
-	// console.log('>>',guac.radius, guac.lat, guac.lon);
-
 	const url = 'https://api.foursquare.com/v2/venues/explore?';
 
 	const searchArguments = {
@@ -121,7 +112,6 @@ guac.getPlaces = function() {
 		params: searchArguments
 	})
 	.then(function (response) {
-		console.log(response);
 		guac.displayPlaces(response);
 
 		// End Loading Animation.
@@ -215,7 +205,5 @@ guac.displayPlaces = function(result) {
 
 // Document ready statement.
 document.addEventListener( 'DOMContentLoaded', function() {
-	console.log( 'Call init' );
-
 	guac.init();
 } ) ;
