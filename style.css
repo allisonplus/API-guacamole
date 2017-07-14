@@ -259,6 +259,7 @@ button {
   border: 3px solid #ACBCB5;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   margin: 10px 0;
   padding: 10px;
   width: 100%; }
@@ -276,8 +277,6 @@ button {
   .place-result img {
     width: 95%;
     margin: 2% auto; }
-  .place-result .content {
-    flex: 1; }
   .place-result .dist,
   .place-result .rating {
     font-size: 22px;

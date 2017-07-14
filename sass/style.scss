@@ -193,6 +193,7 @@ button {
 	border: 3px solid $color-edward;
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 	margin: 10px 0;
 	padding: 10px;
 	width: 100%;
@@ -220,9 +221,13 @@ button {
 		margin: 2% auto;
 	}
 
-	// All text content.
+	// <img> + name.
+	.header{
+		// flex: 1;
+	}
+
 	.content {
-		flex: 1;
+		// flex: 1;
 	}
 
 	// Distance + rating.
