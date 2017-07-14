@@ -143,8 +143,6 @@ guac.displayPlaces = function(result) {
 		document.querySelector( 'section.results' ).insertAdjacentHTML( 'afterbegin', gothamole );
 	}
 
-	console.log( places );
-
 	// Loop that will go through array being held in items above.
 	places.forEach( function(place) {
 		const name = place.venue.name;
