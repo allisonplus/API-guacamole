@@ -1,4 +1,4 @@
-//Blank namespace
+//Blank namespace.
 var guac = {
 };
 
@@ -6,8 +6,8 @@ guac.clientId = 'M01QAACEECGNTWIG3C3GEC5BEX3SNLI2EZ4SJ0WHVQEY3ZA5';
 guac.clientSecret = 'YKEJGAP4EJ12E4QR1ZZ3K5WR0W0AZSPDZCOEXKYX3TISEMRU';
 
 // Walking + driving variables.
-const walkingButton = document.querySelector( 'button.walking' );
-const drivingButton = document.querySelector( 'button.driving' );
+guac.walkingButton = document.querySelector( 'button.walking' );
+guac.drivingButton = document.querySelector( 'button.driving' );
 
 guac.init = function() {
 	guac.setListeners();
@@ -16,7 +16,7 @@ guac.init = function() {
 guac.getCoordinates = function() {
 
 	// Geolocator.
-	var getPosition = function ( options ) {
+	const getPosition = function ( options ) {
 		return new Promise(function ( resolve, reject ) {
 			navigator.geolocation.getCurrentPosition( resolve, reject, options );
 		});
@@ -41,26 +41,26 @@ guac.getCoordinates = function() {
 guac.setListeners = function() {
 
 	// Walking icon click.
-	walkingButton.addEventListener( 'click', function(e) {
+	guac.walkingButton.addEventListener( 'click', function(e) {
 
 		// Adds class.
 		this.classList.add( 'toggleSVG' );
 
 		// Remove class from driving icon if selected.
-		if( drivingButton.classList.contains( 'toggleSVG' ) ) {
-			drivingButton.classList.remove( 'toggleSVG' );
+		if( guac.drivingButton.classList.contains( 'toggleSVG' ) ) {
+			guac.drivingButton.classList.remove( 'toggleSVG' );
 		}
 	} );
 
 	// Driving icon click.
-	drivingButton.addEventListener( 'click', function(e) {
+	guac.drivingButton.addEventListener( 'click', function(e) {
 
 		// Adds class.
 		this.classList.add( 'toggleSVG' );
 
 		// Remove class from driving icon if selected.
-		if( walkingButton.classList.contains( 'toggleSVG' ) ) {
-			walkingButton.classList.remove( 'toggleSVG' );
+		if( guac.walkingButton.classList.contains( 'toggleSVG' ) ) {
+			guac.walkingButton.classList.remove( 'toggleSVG' );
 		}
 	} );
 
@@ -82,9 +82,9 @@ guac.setListeners = function() {
 guac.checkQuery = function() {
 
 	// Conditional to check for selection class.
-	if ( walkingButton.classList.contains( 'toggleSVG' ) ) {
+	if ( guac.walkingButton.classList.contains( 'toggleSVG' ) ) {
 		guac.radius = 2500;
-	} else if ( drivingButton.classList.contains( 'toggleSVG' ) ) {
+	} else if ( guac.drivingButton.classList.contains( 'toggleSVG' ) ) {
 		guac.radius = 40000;
 	}
 } // end .checkQuery
@@ -150,7 +150,7 @@ guac.displayPlaces = function(result) {
 
 		let dist = '';
 
-		// If distance from current location is more than 1000m, convert it to km and attach different concatenation to add to page.
+		// If distance from current location is more than 1000m, convert it to KM and attach different concatenation to add to page.
 		if ( distance > 1000 ) {
 			dist = `You are ${(distance/1000).toFixed( 1 )} km away.`;
 		} else {
