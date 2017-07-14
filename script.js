@@ -184,7 +184,7 @@ guac.displayPlaces = function(result) {
 		</article>`;
 
 		// Append that div to results section of HTML.
-		document.querySelector( 'section.results' ).insertAdjacentHTML( 'afterbegin', placeCard );
+		document.querySelector( 'section.results' ).insertAdjacentHTML( 'beforeend', placeCard );
 	} ); // end forEach.
 } // end displayResults.
 
