@@ -44,7 +44,7 @@ guac.setListeners = function() {
 	guac.walkingButton.addEventListener( 'click', function(e) {
 
 		// Prevent the default.
-		e.preventDefaultarticle
+		e.preventDefault();
 
 		// Adds class.
 		this.classList.add( 'toggleSVG' );
